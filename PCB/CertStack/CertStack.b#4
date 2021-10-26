@@ -2490,17 +2490,21 @@ design rules under a new name.</description>
 <wire x1="7.8" y1="84.2" x2="12.2" y2="88.6" width="0.3" layer="16"/>
 <wire x1="23.765" y1="56" x2="23.5" y2="56.265" width="0.3" layer="1"/>
 <wire x1="23.5" y1="56.265" x2="23.5" y2="56.765" width="0.3" layer="1"/>
+<wire x1="5.45" y1="72.55" x2="5.45" y2="72.09" width="0.25" layer="1"/>
+<wire x1="5.45" y1="72.09" x2="6.05" y2="71.49" width="0.25" layer="1"/>
 <wire x1="12.2" y1="88.6" x2="30.12" y2="92.54" width="0" layer="19" extent="1-1"/>
-<wire x1="6.75" y1="72.215" x2="6.215" y2="72.55" width="0" layer="19" extent="1-1"/>
 <wire x1="6.775" y1="72.215" x2="6.75" y2="72.215" width="0" layer="19" extent="1-1"/>
 <wire x1="15.51" y1="54.07" x2="6.05" y2="69" width="0" layer="19" extent="1-1"/>
 <wire x1="23.5" y1="56.765" x2="15.51" y2="54.07" width="0" layer="19" extent="1-1"/>
 <wire x1="26.52" y1="56.74" x2="23.765" y2="56" width="0" layer="19" extent="1-1"/>
+<wire x1="26.92" y1="59.49" x2="26.52" y2="56.74" width="0" layer="19" extent="1-1"/>
 <wire x1="29.62" y1="56.74" x2="26.52" y2="56.74" width="0" layer="19" extent="1-1"/>
-<wire x1="26.92" y1="59.49" x2="23.5" y2="56.765" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="CS_BAR">
 <contactref element="BMP384_1" pad="6"/>
+<via x="10.2" y="76.3" extent="1-16" drill="0.35"/>
+<wire x1="7.225" y1="73.785" x2="9.74" y2="76.3" width="0.25" layer="1"/>
+<wire x1="9.74" y1="76.3" x2="10.2" y2="76.3" width="0.25" layer="1"/>
 </signal>
 <signal name="INT">
 <contactref element="BMP384_1" pad="7"/>
@@ -2738,9 +2742,14 @@ design rules under a new name.</description>
 </signal>
 <signal name="CS_FLASH">
 <contactref element="U3" pad="1"/>
-</signal>
-<signal name="CS-FLASH">
 <contactref element="U$1" pad="2"/>
+<via x="10.8" y="84.2" extent="1-16" drill="0.35"/>
+<wire x1="10.9" y1="86.095" x2="10.9" y2="84.3" width="0.3" layer="1"/>
+<wire x1="10.9" y1="84.3" x2="10.8" y2="84.2" width="0.3" layer="1"/>
+<wire x1="10.8" y1="84.2" x2="13.1" y2="86.5" width="0.3" layer="16"/>
+<wire x1="13.1" y1="86.5" x2="13.1" y2="88.3" width="0.3" layer="16"/>
+<wire x1="13.1" y1="88.3" x2="14.8" y2="90" width="0.3" layer="16"/>
+<wire x1="14.8" y1="90" x2="14.88" y2="90" width="0.3" layer="16"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

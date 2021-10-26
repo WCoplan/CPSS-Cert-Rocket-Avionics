@@ -2738,9 +2738,14 @@ design rules under a new name.</description>
 </signal>
 <signal name="CS_FLASH">
 <contactref element="U3" pad="1"/>
-</signal>
-<signal name="CS-FLASH">
 <contactref element="U$1" pad="2"/>
+<via x="10.8" y="84.2" extent="1-16" drill="0.35"/>
+<wire x1="10.9" y1="86.095" x2="10.9" y2="84.3" width="0.3" layer="1"/>
+<wire x1="10.9" y1="84.3" x2="10.8" y2="84.2" width="0.3" layer="1"/>
+<wire x1="10.8" y1="84.2" x2="13.1" y2="86.5" width="0.3" layer="16"/>
+<wire x1="13.1" y1="86.5" x2="13.1" y2="88.3" width="0.3" layer="16"/>
+<wire x1="13.1" y1="88.3" x2="14.8" y2="90" width="0.3" layer="16"/>
+<wire x1="14.8" y1="90" x2="14.88" y2="90" width="0.3" layer="16"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

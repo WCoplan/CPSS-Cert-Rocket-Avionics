@@ -1587,6 +1587,20 @@ Source: http://www.ledtronics.com/ds/smd-0603/Dstr0093.pdf</description>
 <wire x1="5" y1="-5" x2="-5" y2="-5" width="0.127" layer="21"/>
 <wire x1="-5" y1="-5" x2="-5" y2="5" width="0.127" layer="21"/>
 </package>
+<package name="JST-PH-6">
+<smd name="A" x="-7.4" y="2.25" dx="3" dy="1.6" layer="1" rot="R90"/>
+<smd name="1" x="-5" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
+<smd name="2" x="-3" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
+<smd name="3" x="-1" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
+<smd name="4" x="1" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
+<smd name="5" x="3" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
+<smd name="6" x="5" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
+<smd name="B" x="7.4" y="2.25" dx="3" dy="1.6" layer="1" rot="R90"/>
+<wire x1="-9" y1="4" x2="9" y2="4" width="0.127" layer="25"/>
+<wire x1="9" y1="4" x2="9" y2="-3" width="0.127" layer="25"/>
+<wire x1="9" y1="-3" x2="-9" y2="-3" width="0.127" layer="25"/>
+<wire x1="-9" y1="-3" x2="-9" y2="4" width="0.127" layer="25"/>
+</package>
 </packages>
 </library>
 <library name="InvenSense - ICM-20608-G">
@@ -2173,11 +2187,6 @@ design rules under a new name.</description>
 <attribute name="POPULARITY" value="79" x="13" y="23" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="5.38" y="19.825" size="1.27" layer="27"/>
 </element>
-<element name="TELEM" library="pinhead" library_urn="urn:adsk.eagle:library:325" package="1X06" package3d_urn="urn:adsk.eagle:package:22472/2" value="" x="13" y="33" smashed="yes">
-<attribute name="NAME" x="5.3038" y="34.8288" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="79" x="13" y="33" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="5.38" y="29.825" size="1.27" layer="27"/>
-</element>
 <element name="CAN" library="pinhead" library_urn="urn:adsk.eagle:library:325" package="1X04" package3d_urn="urn:adsk.eagle:package:22407/2" value="" x="24" y="18" smashed="yes">
 <attribute name="NAME" x="18.8438" y="19.8288" size="1.27" layer="25" ratio="10"/>
 <attribute name="POPULARITY" value="91" x="24" y="18" size="1.778" layer="27" display="off"/>
@@ -2266,6 +2275,7 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="28" y="42" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="27.365" y="39.46" size="1.27" layer="27"/>
 </element>
+<element name="TELEM" library="mylibrary" package="JST-PH-6" value="JST-PH-6" x="13" y="31" smashed="yes"/>
 </elements>
 <signals>
 <signal name="GND">

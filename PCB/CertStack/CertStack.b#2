@@ -2071,7 +2071,7 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="14" y="39" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="VALUE" x="16.54" y="38.365" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="Q2" library="SI2302" package="SOT23" value="SI2302" x="19" y="40" smashed="yes">
+<element name="Q3" library="SI2302" package="SOT23" value="SI2302" x="19" y="40" smashed="yes">
 <attribute name="AVAILABILITY" value="In Stock" x="19" y="40" size="1.778" layer="27" display="off"/>
 <attribute name="DESCRIPTION" value=" N-Channel 20 V 2.1A (Ta) 700mW (Ta) Surface Mount SOT-23-3 (TO-236) " x="19" y="40" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Vishay Siliconix" x="19" y="40" size="1.778" layer="27" display="off"/>
@@ -2088,7 +2088,7 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="R" x="19" y="44" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="18.365" y="41.46" size="1.27" layer="27"/>
 </element>
-<element name="Q3" library="SI2302" package="SOT23" value="SI2302" x="24" y="47" smashed="yes">
+<element name="Q2" library="SI2302" package="SOT23" value="SI2302" x="24" y="47" smashed="yes">
 <attribute name="AVAILABILITY" value="In Stock" x="24" y="47" size="1.778" layer="27" display="off"/>
 <attribute name="DESCRIPTION" value=" N-Channel 20 V 2.1A (Ta) 700mW (Ta) Surface Mount SOT-23-3 (TO-236) " x="24" y="47" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Vishay Siliconix" x="24" y="47" size="1.778" layer="27" display="off"/>
@@ -2185,9 +2185,9 @@ design rules under a new name.</description>
 <wire x1="23.765" y1="55.5" x2="21.235" y2="55.5" width="0.3" layer="1"/>
 <contactref element="Q1" pad="2"/>
 <contactref element="R1" pad="1"/>
-<contactref element="Q2" pad="2"/>
-<contactref element="R2" pad="1"/>
 <contactref element="Q3" pad="2"/>
+<contactref element="R2" pad="1"/>
+<contactref element="Q2" pad="2"/>
 <contactref element="R3" pad="1"/>
 <contactref element="Q4" pad="2"/>
 <contactref element="R4" pad="1"/>
@@ -2527,20 +2527,20 @@ design rules under a new name.</description>
 <wire x1="7.5" y1="27" x2="10" y2="37.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$4">
-<contactref element="Q2" pad="1"/>
+<contactref element="Q3" pad="1"/>
 <contactref element="R2" pad="2"/>
 <wire x1="18.05" y1="38.9" x2="19.95" y2="44" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FET3">
-<contactref element="Q2" pad="3"/>
+<contactref element="Q3" pad="3"/>
 </signal>
 <signal name="N$8">
-<contactref element="Q3" pad="1"/>
+<contactref element="Q2" pad="1"/>
 <contactref element="R3" pad="2"/>
 <wire x1="23.05" y1="45.9" x2="24.95" y2="42" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="FET2">
-<contactref element="Q3" pad="3"/>
+<contactref element="Q2" pad="3"/>
 <contactref element="VTX" pad="1"/>
 <contactref element="CAMERA" pad="1"/>
 <wire x1="7.5" y1="17" x2="24" y2="48.1" width="0" layer="19" extent="1-1"/>

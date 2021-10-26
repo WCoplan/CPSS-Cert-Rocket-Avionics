@@ -2130,17 +2130,17 @@ design rules under a new name.</description>
 <element name="TELEM" library="mylibrary" package="JST-PH-6" value="" x="12.5" y="27" smashed="yes">
 <attribute name="NAME" x="12.5" y="31.445" size="1.27" layer="21" align="bottom-center"/>
 </element>
-<element name="DATA" library="mylibrary" package="JST-PH-6" value="" x="12.5" y="9" smashed="yes">
-<attribute name="NAME" x="12.5" y="13.445" size="1.27" layer="21" align="bottom-center"/>
+<element name="DATA" library="mylibrary" package="JST-PH-6" value="" x="32.5" y="7" smashed="yes">
+<attribute name="NAME" x="32.5" y="11.445" size="1.27" layer="21" align="bottom-center"/>
 </element>
-<element name="GPS" library="mylibrary" package="JST-PH-6" value="" x="12.5" y="18" smashed="yes">
-<attribute name="NAME" x="12.5" y="22.445" size="1.27" layer="21" align="bottom-center"/>
+<element name="GPS" library="mylibrary" package="JST-PH-6" value="" x="32.5" y="17" smashed="yes">
+<attribute name="NAME" x="32.5" y="21.445" size="1.27" layer="21" align="bottom-center"/>
 </element>
-<element name="VTX" library="mylibrary" package="JST-PH-6" value="" x="32.5" y="18" smashed="yes">
-<attribute name="NAME" x="32.5" y="22.445" size="1.27" layer="21" align="bottom-center"/>
+<element name="VTX" library="mylibrary" package="JST-PH-6" value="" x="12.5" y="17" smashed="yes">
+<attribute name="NAME" x="12.5" y="21.445" size="1.27" layer="21" align="bottom-center"/>
 </element>
-<element name="CAMERA" library="mylibrary" package="JST-PH-6" value="" x="32.5" y="9" smashed="yes">
-<attribute name="NAME" x="32.5" y="13.445" size="1.27" layer="21" align="bottom-center"/>
+<element name="CAMERA" library="mylibrary" package="JST-PH-6" value="" x="12.5" y="7" smashed="yes">
+<attribute name="NAME" x="12.5" y="11.445" size="1.27" layer="21" align="bottom-center"/>
 </element>
 <element name="POWER" library="mylibrary" package="JST-PH-6" value="" x="32.5" y="27" smashed="yes">
 <attribute name="NAME" x="32.5" y="31.445" size="1.27" layer="21" align="bottom-center"/>
@@ -2197,11 +2197,11 @@ design rules under a new name.</description>
 <contactref element="Q4" pad="2"/>
 <contactref element="R4" pad="1"/>
 <contactref element="TELEM" pad="1"/>
-<contactref element="DATA" pad="1"/>
-<contactref element="GPS" pad="1"/>
 <contactref element="VTX" pad="1"/>
 <contactref element="CAMERA" pad="1"/>
 <contactref element="POWER" pad="1"/>
+<contactref element="GPS" pad="1"/>
+<contactref element="DATA" pad="1"/>
 <wire x1="41.05" y1="86" x2="41.05" y2="90" width="0" layer="19" extent="1-1"/>
 <wire x1="41.05" y1="82" x2="41.05" y2="86" width="0" layer="19" extent="1-1"/>
 <wire x1="38.9" y1="77.05" x2="41.05" y2="82" width="0" layer="19" extent="1-1"/>
@@ -2235,11 +2235,11 @@ design rules under a new name.</description>
 <wire x1="14.88" y1="97.62" x2="10.9" y2="89.905" width="0" layer="19" extent="1-1"/>
 <wire x1="40.27" y1="33" x2="35.4162" y2="43.725" width="0" layer="19" extent="1-1"/>
 <wire x1="7.5" y1="27" x2="14" y2="38.05" width="0" layer="19" extent="1-1"/>
-<wire x1="7.5" y1="18" x2="7.5" y2="27" width="0" layer="19" extent="1-1"/>
-<wire x1="7.5" y1="9" x2="7.5" y2="18" width="0" layer="19" extent="1-1"/>
+<wire x1="7.5" y1="17" x2="7.5" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="7.5" y1="7" x2="7.5" y2="17" width="0" layer="19" extent="1-1"/>
 <wire x1="27.5" y1="27" x2="19.95" y2="38.9" width="0" layer="19" extent="1-1"/>
-<wire x1="27.5" y1="18" x2="27.5" y2="27" width="0" layer="19" extent="1-1"/>
-<wire x1="27.5" y1="9" x2="27.5" y2="18" width="0" layer="19" extent="1-1"/>
+<wire x1="27.5" y1="17" x2="27.5" y2="27" width="0" layer="19" extent="1-1"/>
+<wire x1="27.5" y1="7" x2="27.5" y2="17" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="BMP384_1" pad="10"/>

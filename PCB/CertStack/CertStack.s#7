@@ -11208,6 +11208,12 @@ reflow soldering</description>
 <part name="VTX" library="mylibrary" deviceset="JST-PH-6" device=""/>
 <part name="CAMERA" library="mylibrary" deviceset="JST-PH-6" device=""/>
 <part name="POWER" library="mylibrary" deviceset="JST-PH-6" device=""/>
+<part name="GND25" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND29" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND31" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND33" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND34" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11467,20 +11473,38 @@ reflow soldering</description>
 <instance part="TELEM" gate="G$1" x="-58.42" y="175.26" smashed="yes">
 <attribute name="NAME" x="-60.96" y="193.04" size="1.27" layer="95"/>
 </instance>
-<instance part="DATA" gate="G$1" x="-40.64" y="175.26" smashed="yes">
-<attribute name="NAME" x="-43.18" y="193.04" size="1.27" layer="95"/>
+<instance part="DATA" gate="G$1" x="-38.1" y="175.26" smashed="yes">
+<attribute name="NAME" x="-40.64" y="193.04" size="1.27" layer="95"/>
 </instance>
-<instance part="GPS" gate="G$1" x="-22.86" y="175.26" smashed="yes">
-<attribute name="NAME" x="-25.4" y="193.04" size="1.27" layer="95"/>
+<instance part="GPS" gate="G$1" x="-17.78" y="175.26" smashed="yes">
+<attribute name="NAME" x="-20.32" y="193.04" size="1.27" layer="95"/>
 </instance>
-<instance part="VTX" gate="G$1" x="-5.08" y="175.26" smashed="yes">
-<attribute name="NAME" x="-7.62" y="193.04" size="1.27" layer="95"/>
+<instance part="VTX" gate="G$1" x="2.54" y="175.26" smashed="yes">
+<attribute name="NAME" x="0" y="193.04" size="1.27" layer="95"/>
 </instance>
-<instance part="CAMERA" gate="G$1" x="10.16" y="175.26" smashed="yes">
-<attribute name="NAME" x="7.62" y="193.04" size="1.27" layer="95"/>
+<instance part="CAMERA" gate="G$1" x="22.86" y="175.26" smashed="yes">
+<attribute name="NAME" x="20.32" y="193.04" size="1.27" layer="95"/>
 </instance>
-<instance part="POWER" gate="G$1" x="25.4" y="175.26" smashed="yes">
-<attribute name="NAME" x="22.86" y="193.04" size="1.27" layer="95"/>
+<instance part="POWER" gate="G$1" x="45.72" y="175.26" smashed="yes">
+<attribute name="NAME" x="43.18" y="193.04" size="1.27" layer="95"/>
+</instance>
+<instance part="GND25" gate="1" x="-68.58" y="187.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-71.12" y="190.5" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND29" gate="1" x="-48.26" y="187.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-50.8" y="190.5" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND30" gate="1" x="-27.94" y="187.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-30.48" y="190.5" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND31" gate="1" x="-7.62" y="187.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-10.16" y="190.5" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND33" gate="1" x="12.7" y="187.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="10.16" y="190.5" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND34" gate="1" x="35.56" y="187.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="33.02" y="190.5" size="1.778" layer="96" rot="R270"/>
 </instance>
 </instances>
 <busses>
@@ -11666,6 +11690,36 @@ reflow soldering</description>
 <pinref part="GND23" gate="1" pin="GND"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <wire x1="-187.96" y1="109.22" x2="-187.96" y2="114.3" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="TELEM" gate="G$1" pin="1"/>
+<wire x1="-63.5" y1="187.96" x2="-66.04" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="GND25" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="DATA" gate="G$1" pin="1"/>
+<wire x1="-43.18" y1="187.96" x2="-45.72" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="GND29" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GPS" gate="G$1" pin="1"/>
+<wire x1="-22.86" y1="187.96" x2="-25.4" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="GND30" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="VTX" gate="G$1" pin="1"/>
+<wire x1="-2.54" y1="187.96" x2="-5.08" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="GND31" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="CAMERA" gate="G$1" pin="1"/>
+<wire x1="17.78" y1="187.96" x2="15.24" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="GND33" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="POWER" gate="G$1" pin="1"/>
+<wire x1="40.64" y1="187.96" x2="38.1" y2="187.96" width="0.1524" layer="91"/>
+<pinref part="GND34" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -11917,8 +11971,8 @@ reflow soldering</description>
 <net name="N$2" class="0">
 <segment>
 <wire x1="-39.37" y1="146.05" x2="-46.99" y2="146.05" width="0.1524" layer="91"/>
-<wire x1="-46.99" y1="146.05" x2="-46.99" y2="151.13" width="0.1524" layer="91"/>
-<wire x1="-46.99" y1="151.13" x2="-52.07" y2="151.13" width="0.1524" layer="91"/>
+<wire x1="-46.99" y1="146.05" x2="-44.45" y2="151.13" width="0.1524" layer="91"/>
+<wire x1="-44.45" y1="151.13" x2="-52.07" y2="151.13" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="VID-IN" class="0">

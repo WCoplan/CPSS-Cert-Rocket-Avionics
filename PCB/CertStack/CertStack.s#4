@@ -11189,11 +11189,11 @@ reflow soldering</description>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q3" library="SI2302" deviceset="SI2302" device=""/>
-<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="GND18" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND19" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q2" library="SI2302" deviceset="SI2302" device=""/>
-<part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
+<part name="R2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="10k"/>
 <part name="GND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="Q4" library="SI2302" deviceset="SI2302" device=""/>
@@ -11406,8 +11406,8 @@ reflow soldering</description>
 <attribute name="NAME" x="-315.595" y="151.13" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-304.8" y="151.13" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND3" gate="1" x="-411.48" y="35.56" smashed="yes">
-<attribute name="VALUE" x="-414.02" y="33.02" size="1.778" layer="96"/>
+<instance part="GND3" gate="1" x="-411.48" y="40.64" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-414.02" y="43.18" size="1.778" layer="96" rot="R270"/>
 </instance>
 <instance part="Q1" gate="G$1" x="-220.98" y="149.86" smashed="yes">
 <attribute name="VALUE" x="-218.43616875" y="147.31616875" size="1.78068125" layer="96"/>
@@ -11427,7 +11427,7 @@ reflow soldering</description>
 <attribute name="VALUE" x="-218.43616875" y="116.83616875" size="1.78068125" layer="96"/>
 <attribute name="NAME" x="-218.438340625" y="119.38" size="1.77916875" layer="95"/>
 </instance>
-<instance part="R2" gate="G$1" x="-236.22" y="119.38" smashed="yes" rot="R90">
+<instance part="R3" gate="G$1" x="-236.22" y="119.38" smashed="yes" rot="R90">
 <attribute name="NAME" x="-237.7186" y="115.57" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-232.918" y="115.57" size="1.778" layer="96" rot="R90"/>
 </instance>
@@ -11437,33 +11437,33 @@ reflow soldering</description>
 <instance part="GND19" gate="1" x="-236.22" y="106.68" smashed="yes">
 <attribute name="VALUE" x="-238.76" y="104.14" size="1.778" layer="96"/>
 </instance>
-<instance part="Q2" gate="G$1" x="-172.72" y="149.86" smashed="yes">
-<attribute name="VALUE" x="-170.17616875" y="147.31616875" size="1.78068125" layer="96"/>
-<attribute name="NAME" x="-170.178340625" y="149.86" size="1.77916875" layer="95"/>
+<instance part="Q2" gate="G$1" x="-165.1" y="149.86" smashed="yes">
+<attribute name="VALUE" x="-162.55616875" y="147.31616875" size="1.78068125" layer="96"/>
+<attribute name="NAME" x="-162.558340625" y="149.86" size="1.77916875" layer="95"/>
 </instance>
-<instance part="R3" gate="G$1" x="-187.96" y="149.86" smashed="yes" rot="R90">
-<attribute name="NAME" x="-189.4586" y="146.05" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-184.658" y="146.05" size="1.778" layer="96" rot="R90"/>
+<instance part="R2" gate="G$1" x="-180.34" y="149.86" smashed="yes" rot="R90">
+<attribute name="NAME" x="-181.8386" y="146.05" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="-177.038" y="146.05" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND20" gate="1" x="-172.72" y="137.16" smashed="yes">
-<attribute name="VALUE" x="-175.26" y="134.62" size="1.778" layer="96"/>
+<instance part="GND20" gate="1" x="-165.1" y="137.16" smashed="yes">
+<attribute name="VALUE" x="-167.64" y="134.62" size="1.778" layer="96"/>
 </instance>
-<instance part="GND21" gate="1" x="-187.96" y="137.16" smashed="yes">
-<attribute name="VALUE" x="-190.5" y="134.62" size="1.778" layer="96"/>
+<instance part="GND21" gate="1" x="-180.34" y="137.16" smashed="yes">
+<attribute name="VALUE" x="-182.88" y="134.62" size="1.778" layer="96"/>
 </instance>
-<instance part="Q4" gate="G$1" x="-172.72" y="119.38" smashed="yes">
-<attribute name="VALUE" x="-170.17616875" y="116.83616875" size="1.78068125" layer="96"/>
-<attribute name="NAME" x="-170.178340625" y="119.38" size="1.77916875" layer="95"/>
+<instance part="Q4" gate="G$1" x="-165.1" y="119.38" smashed="yes">
+<attribute name="VALUE" x="-162.55616875" y="116.83616875" size="1.78068125" layer="96"/>
+<attribute name="NAME" x="-162.558340625" y="119.38" size="1.77916875" layer="95"/>
 </instance>
-<instance part="R4" gate="G$1" x="-187.96" y="119.38" smashed="yes" rot="R90">
-<attribute name="NAME" x="-189.4586" y="115.57" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-184.658" y="115.57" size="1.778" layer="96" rot="R90"/>
+<instance part="R4" gate="G$1" x="-180.34" y="119.38" smashed="yes" rot="R90">
+<attribute name="NAME" x="-181.8386" y="115.57" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="-177.038" y="115.57" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND22" gate="1" x="-172.72" y="106.68" smashed="yes">
-<attribute name="VALUE" x="-175.26" y="104.14" size="1.778" layer="96"/>
+<instance part="GND22" gate="1" x="-165.1" y="106.68" smashed="yes">
+<attribute name="VALUE" x="-167.64" y="104.14" size="1.778" layer="96"/>
 </instance>
-<instance part="GND23" gate="1" x="-187.96" y="106.68" smashed="yes">
-<attribute name="VALUE" x="-190.5" y="104.14" size="1.778" layer="96"/>
+<instance part="GND23" gate="1" x="-180.34" y="106.68" smashed="yes">
+<attribute name="VALUE" x="-182.88" y="104.14" size="1.778" layer="96"/>
 </instance>
 <instance part="TELEM" gate="G$1" x="-58.42" y="218.44" smashed="yes" rot="R90">
 <attribute name="NAME" x="-76.2" y="215.9" size="1.27" layer="95" rot="R90"/>
@@ -11604,8 +11604,7 @@ reflow soldering</description>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="GND1"/>
-<wire x1="-398.78" y1="40.64" x2="-411.48" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="-411.48" y1="40.64" x2="-411.48" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="-398.78" y1="40.64" x2="-408.94" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
 </segment>
 <segment>
@@ -11669,28 +11668,28 @@ reflow soldering</description>
 </segment>
 <segment>
 <pinref part="GND19" gate="1" pin="GND"/>
-<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="R3" gate="G$1" pin="1"/>
 <wire x1="-236.22" y1="109.22" x2="-236.22" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q2" gate="G$1" pin="S"/>
 <pinref part="GND20" gate="1" pin="GND"/>
-<wire x1="-172.72" y1="144.78" x2="-172.72" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="144.78" x2="-165.1" y2="139.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND21" gate="1" pin="GND"/>
-<pinref part="R3" gate="G$1" pin="1"/>
-<wire x1="-187.96" y1="139.7" x2="-187.96" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="-180.34" y1="139.7" x2="-180.34" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="Q4" gate="G$1" pin="S"/>
 <pinref part="GND22" gate="1" pin="GND"/>
-<wire x1="-172.72" y1="114.3" x2="-172.72" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="114.3" x2="-165.1" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND23" gate="1" pin="GND"/>
 <pinref part="R4" gate="G$1" pin="1"/>
-<wire x1="-187.96" y1="109.22" x2="-187.96" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="109.22" x2="-180.34" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND31" gate="1" pin="GND"/>
@@ -11813,11 +11812,6 @@ reflow soldering</description>
 <pinref part="BMP384_1" gate="G$1" pin="6"/>
 <wire x1="0" y1="78.74" x2="30.48" y2="78.74" width="0.1524" layer="91"/>
 <label x="30.48" y="78.74" size="1.778" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="U$1" gate="G$1" pin="6"/>
-<wire x1="-398.78" y1="5.08" x2="-408.94" y2="5.08" width="0.1524" layer="91"/>
-<label x="-408.94" y="5.08" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="INT" class="0">
@@ -12133,7 +12127,7 @@ reflow soldering</description>
 <label x="-7.62" y="210.82" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
-<net name="N$1" class="0">
+<net name="F1_TRIG" class="0">
 <segment>
 <pinref part="Q1" gate="G$1" pin="G"/>
 <wire x1="-226.06" y1="147.32" x2="-226.06" y2="157.48" width="0.1524" layer="91"/>
@@ -12142,6 +12136,12 @@ reflow soldering</description>
 <wire x1="-236.22" y1="157.48" x2="-243.84" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="-236.22" y1="154.94" x2="-236.22" y2="157.48" width="0.1524" layer="91"/>
 <junction x="-236.22" y="157.48"/>
+<label x="-243.84" y="157.48" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="3"/>
+<wire x1="-398.78" y1="20.32" x2="-408.94" y2="20.32" width="0.1524" layer="91"/>
+<label x="-408.94" y="20.32" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="FET1" class="0">
@@ -12157,15 +12157,21 @@ reflow soldering</description>
 <label x="-71.12" y="210.82" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
-<net name="N$4" class="0">
+<net name="F3_TRIG" class="0">
 <segment>
 <pinref part="Q3" gate="G$1" pin="G"/>
 <wire x1="-226.06" y1="116.84" x2="-226.06" y2="127" width="0.1524" layer="91"/>
 <wire x1="-226.06" y1="127" x2="-236.22" y2="127" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="-236.22" y1="127" x2="-243.84" y2="127" width="0.1524" layer="91"/>
 <wire x1="-236.22" y1="124.46" x2="-236.22" y2="127" width="0.1524" layer="91"/>
 <junction x="-236.22" y="127"/>
+<label x="-243.84" y="127" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="5"/>
+<wire x1="-398.78" y1="10.16" x2="-408.94" y2="10.16" width="0.1524" layer="91"/>
+<label x="-408.94" y="10.16" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="FET3" class="0">
@@ -12176,23 +12182,29 @@ reflow soldering</description>
 <label x="-215.9" y="127" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="F2_TRIG" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="G"/>
-<wire x1="-177.8" y1="147.32" x2="-177.8" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="-177.8" y1="157.48" x2="-187.96" y2="157.48" width="0.1524" layer="91"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="-187.96" y1="157.48" x2="-195.58" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="-187.96" y1="154.94" x2="-187.96" y2="157.48" width="0.1524" layer="91"/>
-<junction x="-187.96" y="157.48"/>
+<wire x1="-170.18" y1="147.32" x2="-170.18" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-170.18" y1="157.48" x2="-180.34" y2="157.48" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="-180.34" y1="157.48" x2="-187.96" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="154.94" x2="-180.34" y2="157.48" width="0.1524" layer="91"/>
+<junction x="-180.34" y="157.48"/>
+<label x="-187.96" y="157.48" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="4"/>
+<wire x1="-398.78" y1="15.24" x2="-408.94" y2="15.24" width="0.1524" layer="91"/>
+<label x="-408.94" y="15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="FET2" class="0">
 <segment>
 <pinref part="Q2" gate="G$1" pin="D"/>
-<wire x1="-172.72" y1="154.94" x2="-172.72" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="-172.72" y1="157.48" x2="-167.64" y2="157.48" width="0.1524" layer="91"/>
-<label x="-167.64" y="157.48" size="1.778" layer="95" xref="yes"/>
+<wire x1="-165.1" y1="154.94" x2="-165.1" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="157.48" x2="-160.02" y2="157.48" width="0.1524" layer="91"/>
+<label x="-160.02" y="157.48" size="1.778" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="VTX" gate="G$1" pin="1"/>
@@ -12205,23 +12217,29 @@ reflow soldering</description>
 <label x="-71.12" y="160.02" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="F4_TRIG" class="0">
 <segment>
 <pinref part="Q4" gate="G$1" pin="G"/>
-<wire x1="-177.8" y1="116.84" x2="-177.8" y2="127" width="0.1524" layer="91"/>
-<wire x1="-177.8" y1="127" x2="-187.96" y2="127" width="0.1524" layer="91"/>
+<wire x1="-170.18" y1="116.84" x2="-170.18" y2="127" width="0.1524" layer="91"/>
+<wire x1="-170.18" y1="127" x2="-180.34" y2="127" width="0.1524" layer="91"/>
 <pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="-187.96" y1="127" x2="-195.58" y2="127" width="0.1524" layer="91"/>
-<wire x1="-187.96" y1="124.46" x2="-187.96" y2="127" width="0.1524" layer="91"/>
-<junction x="-187.96" y="127"/>
+<wire x1="-180.34" y1="127" x2="-187.96" y2="127" width="0.1524" layer="91"/>
+<wire x1="-180.34" y1="124.46" x2="-180.34" y2="127" width="0.1524" layer="91"/>
+<junction x="-180.34" y="127"/>
+<label x="-187.96" y="127" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="6"/>
+<wire x1="-398.78" y1="5.08" x2="-408.94" y2="5.08" width="0.1524" layer="91"/>
+<label x="-408.94" y="5.08" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="FET4" class="0">
 <segment>
 <pinref part="Q4" gate="G$1" pin="D"/>
-<wire x1="-172.72" y1="124.46" x2="-172.72" y2="127" width="0.1524" layer="91"/>
-<wire x1="-172.72" y1="127" x2="-167.64" y2="127" width="0.1524" layer="91"/>
-<label x="-167.64" y="127" size="1.778" layer="95" xref="yes"/>
+<wire x1="-165.1" y1="124.46" x2="-165.1" y2="127" width="0.1524" layer="91"/>
+<wire x1="-165.1" y1="127" x2="-160.02" y2="127" width="0.1524" layer="91"/>
+<label x="-160.02" y="127" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="VIDEO" class="0">
@@ -12242,12 +12260,22 @@ reflow soldering</description>
 <wire x1="-55.88" y1="187.96" x2="-55.88" y2="185.42" width="0.1524" layer="91"/>
 <label x="-55.88" y="185.42" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="7"/>
+<wire x1="-398.78" y1="0" x2="-408.94" y2="0" width="0.1524" layer="91"/>
+<label x="-408.94" y="0" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="VTX_TX" class="0">
 <segment>
 <pinref part="VTX" gate="G$1" pin="5"/>
 <wire x1="-50.8" y1="187.96" x2="-50.8" y2="185.42" width="0.1524" layer="91"/>
 <label x="-50.8" y="185.42" size="1.778" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="8"/>
+<wire x1="-398.78" y1="-5.08" x2="-408.94" y2="-5.08" width="0.1524" layer="91"/>
+<label x="-408.94" y="-5.08" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="TELEM_RX" class="0">
@@ -12256,12 +12284,22 @@ reflow soldering</description>
 <wire x1="-60.96" y1="213.36" x2="-60.96" y2="210.82" width="0.1524" layer="91"/>
 <label x="-60.96" y="210.82" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="0"/>
+<wire x1="-398.78" y1="35.56" x2="-408.94" y2="35.56" width="0.1524" layer="91"/>
+<label x="-408.94" y="35.56" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="TELEM_TX" class="0">
 <segment>
 <pinref part="TELEM" gate="G$1" pin="4"/>
 <wire x1="-55.88" y1="213.36" x2="-55.88" y2="210.82" width="0.1524" layer="91"/>
 <label x="-55.88" y="210.82" size="1.778" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="1"/>
+<wire x1="-398.78" y1="30.48" x2="-408.94" y2="30.48" width="0.1524" layer="91"/>
+<label x="-408.94" y="30.48" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SW-" class="0">
@@ -12277,12 +12315,22 @@ reflow soldering</description>
 <wire x1="-12.7" y1="187.96" x2="-12.7" y2="185.42" width="0.1524" layer="91"/>
 <label x="-12.7" y="185.42" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="9"/>
+<wire x1="-398.78" y1="-10.16" x2="-408.94" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-408.94" y="-10.16" size="1.778" layer="95" rot="R180" xref="yes"/>
+</segment>
 </net>
 <net name="GPS_TX" class="0">
 <segment>
 <pinref part="GPS" gate="G$1" pin="4"/>
 <wire x1="-7.62" y1="187.96" x2="-7.62" y2="185.42" width="0.1524" layer="91"/>
 <label x="-7.62" y="185.42" size="1.778" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="10"/>
+<wire x1="-398.78" y1="-15.24" x2="-408.94" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-408.94" y="-15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$9" class="0">

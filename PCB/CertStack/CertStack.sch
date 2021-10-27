@@ -11045,35 +11045,6 @@ Based on the following sources:
 &lt;/ul&gt;
 &lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
 <packages>
-<package name="DO35Z10" urn="urn:adsk.eagle:footprint:43098/1" library_version="8">
-<description>&lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
-diameter 2 mm, horizontal, grid 10.16mm</description>
-<wire x1="5.08" y1="0" x2="4.191" y2="0" width="0.508" layer="51"/>
-<wire x1="-5.08" y1="0" x2="-4.191" y2="0" width="0.508" layer="51"/>
-<wire x1="-0.635" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="0.635" x2="1.016" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-0.635" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="1.016" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="0" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="0.254" y1="0.635" x2="0" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="0.635" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="2.032" y1="1.016" x2="2.286" y2="0.762" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-2.286" y1="0.762" x2="-2.032" y2="1.016" width="0.1524" layer="21" curve="-90"/>
-<wire x1="-2.286" y1="-0.762" x2="-2.032" y2="-1.016" width="0.1524" layer="21" curve="90"/>
-<wire x1="2.032" y1="-1.016" x2="2.286" y2="-0.762" width="0.1524" layer="21" curve="90"/>
-<wire x1="2.286" y1="0.762" x2="2.286" y2="-0.762" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="0.762" x2="-2.286" y2="-0.762" width="0.1524" layer="21"/>
-<wire x1="-2.032" y1="1.016" x2="2.032" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-2.032" y1="-1.016" x2="2.032" y2="-1.016" width="0.1524" layer="21"/>
-<pad name="C" x="-5.08" y="0" drill="0.8128" shape="long"/>
-<pad name="A" x="5.08" y="0" drill="0.8128" shape="long"/>
-<text x="-2.286" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-2.286" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-1.905" y1="-1.016" x2="-1.397" y2="1.016" layer="21"/>
-<rectangle x1="2.286" y1="-0.254" x2="4.191" y2="0.254" layer="21"/>
-<rectangle x1="-4.191" y1="-0.254" x2="-2.286" y2="0.254" layer="21"/>
-</package>
 <package name="DO41-10" urn="urn:adsk.eagle:footprint:43094/1" library_version="8">
 <description>&lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
 diameter 2.54 mm, horizontal, grid 10.16 mm</description>
@@ -11100,13 +11071,6 @@ diameter 2.54 mm, horizontal, grid 10.16 mm</description>
 </package>
 </packages>
 <packages3d>
-<package3d name="DO35Z10" urn="urn:adsk.eagle:package:43342/1" type="box" library_version="8">
-<description>DIODE
-diameter 2 mm, horizontal, grid 10.16mm</description>
-<packageinstances>
-<packageinstance name="DO35Z10"/>
-</packageinstances>
-</package3d>
 <package3d name="DO41-10" urn="urn:adsk.eagle:package:43336/1" type="box" library_version="8">
 <description>DIODE
 diameter 2.54 mm, horizontal, grid 10.16 mm</description>
@@ -11116,21 +11080,6 @@ diameter 2.54 mm, horizontal, grid 10.16 mm</description>
 </package3d>
 </packages3d>
 <symbols>
-<symbol name="ZD" urn="urn:adsk.eagle:symbol:43096/2" library_version="8">
-<wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="-1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-1.27" x2="0.635" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-2.54" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
-<text x="-1.778" y="1.905" size="1.778" layer="95">&gt;NAME</text>
-<text x="-1.778" y="-3.429" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
-<pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
-</symbol>
 <symbol name="D" urn="urn:adsk.eagle:symbol:43091/2" library_version="8">
 <wire x1="-1.27" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
 <wire x1="1.27" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
@@ -11149,29 +11098,6 @@ diameter 2.54 mm, horizontal, grid 10.16 mm</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="1N821" urn="urn:adsk.eagle:component:43480/3" prefix="D" library_version="8">
-<description>Reference &lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
-temperature compensated, 6,2 V</description>
-<gates>
-<gate name="1" symbol="ZD" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="DO35Z10">
-<connects>
-<connect gate="1" pin="A" pad="A"/>
-<connect gate="1" pin="C" pad="C"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:43342/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="POPULARITY" value="1" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="1N4004" urn="urn:adsk.eagle:component:43462/3" prefix="D" library_version="8">
 <description>&lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
 general purpose rectifier, 1 A</description>
@@ -11425,6 +11351,58 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="DO-214AB">
+<packages>
+<package name="DO-214AB">
+<wire x1="-5.08" y1="3.81" x2="5.08" y2="3.81" width="0.127" layer="21"/>
+<wire x1="5.08" y1="3.81" x2="5.08" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="5.08" y1="-3.81" x2="-5.08" y2="-3.81" width="0.127" layer="21"/>
+<wire x1="-5.08" y1="-3.81" x2="-5.08" y2="3.81" width="0.127" layer="21"/>
+<text x="-5.842" y="0.7" size="0.4" layer="25">&gt;NAME</text>
+<text x="-5.842" y="-0.7" size="0.4" layer="27" align="top-left">&gt;VALUE</text>
+<smd name="IN" x="-3.302" y="0" dx="5.08" dy="1.778" layer="1" rot="R90"/>
+<smd name="OUT" x="3.302" y="0" dx="5.08" dy="1.778" layer="1" rot="R90"/>
+</package>
+</packages>
+<symbols>
+<symbol name="GENERICDIODE">
+<wire x1="-5.08" y1="0" x2="0" y2="7.62" width="0.254" layer="94"/>
+<wire x1="0" y1="7.62" x2="5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="5.08" y1="0" x2="-5.08" y2="0" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="7.62" x2="5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="7.62" x2="5.08" y2="10.16" width="0.254" layer="94"/>
+<pin name="OUT" x="0" y="10.16" length="middle" rot="R270"/>
+<pin name="IN" x="0" y="-2.54" length="middle" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="DO-214AB">
+<description> &lt;a href="https://pricing.snapeda.com/parts/DO-214AB/Littelfuse%20Inc./view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="GENERICDIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="DO-214AB">
+<connects>
+<connect gate="G$1" pin="IN" pad="IN"/>
+<connect gate="G$1" pin="OUT" pad="OUT"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="Not in stock"/>
+<attribute name="DESCRIPTION" value=" 143.85V Clamp 11.1A Ipp Tvs Diode Surface Mount DO-214AB (SMCJ) "/>
+<attribute name="MF" value="Littelfuse Inc."/>
+<attribute name="MP" value="DO-214AB"/>
+<attribute name="PACKAGE" value="DO-214AB-214 Littelfuse Inc."/>
+<attribute name="PRICE" value="None"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11523,7 +11501,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND25" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U1" library="LT1374CS8-5PBF" deviceset="LT1374CS8-5PBF" device=""/>
 <part name="GND30" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="D2" library="diode" library_urn="urn:adsk.eagle:library:210" deviceset="1N821" device="" package3d_urn="urn:adsk.eagle:package:43342/1" value="30V 100mA"/>
 <part name="C4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
 <part name="L1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="L" device="" value="5 uH"/>
 <part name="GND35" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -11534,6 +11511,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND36" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="U$3" library="DO-214AB" deviceset="DO-214AB" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11828,10 +11806,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND30" gate="1" x="-251.46" y="60.96" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-254" y="63.5" size="1.778" layer="96" rot="R270"/>
 </instance>
-<instance part="D2" gate="1" x="-238.76" y="45.72" smashed="yes">
-<attribute name="NAME" x="-240.538" y="47.625" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-240.538" y="42.291" size="1.778" layer="96"/>
-</instance>
 <instance part="C4" gate="G$1" x="-208.28" y="45.72" smashed="yes" rot="R270">
 <attribute name="NAME" x="-207.645" y="44.704" size="1.778" layer="95" rot="R270"/>
 <attribute name="VALUE" x="-212.471" y="44.704" size="1.778" layer="96" rot="R270"/>
@@ -11868,6 +11842,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND16" gate="1" x="-2.54" y="208.28" smashed="yes">
 <attribute name="VALUE" x="-5.08" y="205.74" size="1.778" layer="96"/>
 </instance>
+<instance part="U$3" gate="G$1" x="-142.24" y="58.42" smashed="yes"/>
 </instances>
 <busses>
 </busses>
@@ -12774,22 +12749,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-256.54" y="66.04" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="-246.38" y1="45.72" x2="-241.3" y2="45.72" width="0.1524" layer="91"/>
-<label x="-251.46" y="45.72" size="1.778" layer="95"/>
-<pinref part="D2" gate="1" pin="A"/>
-</segment>
-<segment>
 <wire x1="-218.44" y1="45.72" x2="-213.36" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="C4" gate="G$1" pin="2"/>
 <label x="-223.52" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="OUT" class="0">
-<segment>
-<pinref part="D2" gate="1" pin="C"/>
-<wire x1="-236.22" y1="45.72" x2="-228.6" y2="45.72" width="0.1524" layer="91"/>
-<label x="-233.68" y="45.72" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="L1" gate="G$1" pin="2"/>
 <wire x1="-187.96" y1="45.72" x2="-182.88" y2="45.72" width="0.1524" layer="91"/>

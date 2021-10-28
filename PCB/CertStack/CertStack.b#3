@@ -1768,6 +1768,42 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
+<library name="PMEG4020ETP_115">
+<packages>
+<package name="SODFL4725X110N">
+<wire x1="-2.1" y1="1.7" x2="2.1" y2="1.7" width="0.127" layer="51"/>
+<wire x1="2.1" y1="1.7" x2="2.1" y2="1.25" width="0.127" layer="51"/>
+<wire x1="2.1" y1="1.25" x2="3.1" y2="1.25" width="0.127" layer="51"/>
+<wire x1="3.1" y1="1.25" x2="3.1" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="3.1" y1="-1.25" x2="2.1" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="2.1" y1="-1.25" x2="2.1" y2="-1.7" width="0.127" layer="51"/>
+<wire x1="2.1" y1="-1.7" x2="-2.1" y2="-1.7" width="0.127" layer="51"/>
+<wire x1="-2.1" y1="-1.7" x2="-2.1" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-2.1" y1="-1.25" x2="-3.1" y2="-1.25" width="0.127" layer="51"/>
+<wire x1="-3.1" y1="-1.25" x2="-3.1" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-3.1" y1="1.25" x2="-2.1" y2="1.25" width="0.127" layer="51"/>
+<wire x1="-2.1" y1="1.25" x2="-2.1" y2="1.7" width="0.127" layer="51"/>
+<rectangle x1="-2.8" y1="-0.95" x2="-1.6" y2="0.95" layer="31"/>
+<rectangle x1="1.6" y1="-0.95" x2="2.8" y2="0.95" layer="31"/>
+<wire x1="2.1" y1="1.7" x2="2.1" y2="1.37" width="0.127" layer="21"/>
+<wire x1="2.1" y1="-1.7" x2="2.1" y2="-1.37" width="0.127" layer="21"/>
+<wire x1="-2.1" y1="-1.7" x2="-2.1" y2="-1.37" width="0.127" layer="21"/>
+<wire x1="-2.1" y1="1.37" x2="-2.1" y2="1.7" width="0.127" layer="21"/>
+<wire x1="-2.1" y1="1.7" x2="2.1" y2="1.7" width="0.127" layer="21"/>
+<wire x1="2.1" y1="-1.7" x2="-2.1" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-3.35" y1="1.95" x2="-3.35" y2="-1.95" width="0.05" layer="39"/>
+<wire x1="-3.35" y1="-1.95" x2="3.35" y2="-1.95" width="0.05" layer="39"/>
+<wire x1="3.35" y1="-1.95" x2="3.35" y2="1.95" width="0.05" layer="39"/>
+<wire x1="3.35" y1="1.95" x2="-3.35" y2="1.95" width="0.05" layer="39"/>
+<circle x="-3.9" y="0" radius="0.1" width="0.2" layer="21"/>
+<circle x="-3.9" y="0" radius="0.1" width="0.2" layer="51"/>
+<text x="-3.35" y="2.95" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.35" y="-2.95" size="1.27" layer="27" align="top-left">&gt;VALUE</text>
+<smd name="1" x="-2.2" y="0" dx="1.4" dy="2.1" layer="1" cream="no"/>
+<smd name="2" x="2.2" y="0" dx="1.4" dy="2.1" layer="1" cream="no"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2219,7 +2255,7 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="C" x="49" y="32" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="60.73" y="34.46" size="1.27" layer="27"/>
 </element>
-<element name="D1" library="diode" library_urn="urn:adsk.eagle:library:210" package="DO41-10" package3d_urn="urn:adsk.eagle:package:43336/1" value="1N4004" x="54" y="54" smashed="yes">
+<element name="D99" library="diode" library_urn="urn:adsk.eagle:library:210" package="DO41-10" package3d_urn="urn:adsk.eagle:package:43336/1" value="1N4004" x="54" y="54" smashed="yes">
 <attribute name="NAME" x="51.968" y="55.651" size="1.27" layer="25" ratio="10"/>
 <attribute name="POPULARITY" value="82" x="54" y="28" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="51.968" y="51.206" size="1.27" layer="27" ratio="10"/>
@@ -2234,7 +2270,7 @@ design rules under a new name.</description>
 <attribute name="PROD_ID" value="CAP-10057" x="37" y="41" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="37" y="39.857" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="U$3" library="DO-214AB" package="DO-214AB" value="DO-214AB" x="5" y="-4" smashed="yes">
+<element name="D2" library="DO-214AB" package="DO-214AB" value="DO-214AB" x="5" y="-4" smashed="yes">
 <attribute name="AVAILABILITY" value="Not in stock" x="5" y="-4" size="1.778" layer="27" display="off"/>
 <attribute name="DESCRIPTION" value=" 143.85V Clamp 11.1A Ipp Tvs Diode Surface Mount DO-214AB (SMCJ) " x="5" y="-4" size="1.778" layer="27" display="off"/>
 <attribute name="MF" value="Littelfuse Inc." x="5" y="-4" size="1.778" layer="27" display="off"/>
@@ -2243,6 +2279,17 @@ design rules under a new name.</description>
 <attribute name="PACKAGE" value="DO-214AB-214 Littelfuse Inc." x="5" y="-4" size="1.778" layer="27" display="off"/>
 <attribute name="PRICE" value="None" x="5" y="-4" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="-0.842" y="-4.7" size="0.4" layer="27" align="top-left"/>
+</element>
+<element name="D1" library="PMEG4020ETP_115" package="SODFL4725X110N" value="PMEG4020ETP,115" x="-6" y="-3" smashed="yes">
+<attribute name="AVAILABILITY" value="In Stock" x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value=" Diode Schottky 40 V 2A Surface Mount SOD-128/CFP5 " x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Nexperia USA Inc." x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="MP" value="PMEG4020ETP,115" x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-9.35" y="-0.05" size="1.27" layer="25"/>
+<attribute name="PACKAGE" value="SOD-128 Nexperia USA" x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="PRICE" value="None" x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/PMEG4020ETP,115/?ref=eda" x="-6" y="-3" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="-9.35" y="-5.95" size="1.27" layer="27" align="top-left"/>
 </element>
 </elements>
 <signals>
@@ -2301,7 +2348,7 @@ design rules under a new name.</description>
 <contactref element="U$2" pad="-"/>
 <contactref element="U1" pad="4"/>
 <contactref element="CC" pad="2"/>
-<contactref element="D1" pad="A"/>
+<contactref element="D99" pad="A"/>
 <contactref element="C11" pad="2"/>
 <contactref element="C10" pad="2"/>
 <contactref element="POWER" pad="5"/>
@@ -2875,7 +2922,9 @@ design rules under a new name.</description>
 <signal name="BOOST">
 <contactref element="U1" pad="2"/>
 <contactref element="C4" pad="2"/>
+<contactref element="D2" pad="OUT"/>
 <wire x1="49.95" y1="30" x2="37.5362" y2="51.635" width="0" layer="19" extent="1-1"/>
+<wire x1="8.302" y1="-4" x2="49.95" y2="30" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VSW">
 <contactref element="C4" pad="1"/>
@@ -2885,7 +2934,7 @@ design rules under a new name.</description>
 <signal name="SENSE">
 <contactref element="U1" pad="3"/>
 <contactref element="U1" pad="5"/>
-<contactref element="D1" pad="C"/>
+<contactref element="D99" pad="C"/>
 <wire x1="37.5362" y1="50.365" x2="48.92" y2="54" width="0" layer="19" extent="1-1"/>
 <wire x1="42.4638" y1="49.095" x2="37.5362" y2="50.365" width="0" layer="19" extent="1-1"/>
 </signal>
@@ -2893,6 +2942,9 @@ design rules under a new name.</description>
 <contactref element="CC" pad="1"/>
 <contactref element="U1" pad="6"/>
 <wire x1="42.4638" y1="50.365" x2="61.05" y2="37" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="OUT">
+<contactref element="D2" pad="IN"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

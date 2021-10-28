@@ -11397,6 +11397,66 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="T491X106K050AT">
+<packages>
+<package name="CAPMP7343X430N">
+<wire x1="-3.65" y1="2.15" x2="3.65" y2="2.15" width="0.2" layer="21"/>
+<wire x1="3.65" y1="-2.15" x2="-3.65" y2="-2.15" width="0.2" layer="21"/>
+<wire x1="-3.65" y1="2.15" x2="-3.65" y2="1.5" width="0.2" layer="21"/>
+<wire x1="3.65" y1="2.15" x2="3.65" y2="1.5" width="0.2" layer="21"/>
+<wire x1="-3.65" y1="-1.5" x2="-3.65" y2="-2.15" width="0.2" layer="21"/>
+<wire x1="3.65" y1="-1.5" x2="3.65" y2="-2.15" width="0.2" layer="21"/>
+<circle x="-4.9" y="0.05" radius="0.21213125" width="0.127" layer="21"/>
+<circle x="-4.95" y="0.05" radius="0.111803125" width="0.127" layer="21"/>
+<circle x="-4.85" y="0" radius="0.111803125" width="0.127" layer="21"/>
+<wire x1="-4.55" y1="2.55" x2="-4.55" y2="-2.55" width="0.05" layer="39"/>
+<wire x1="-4.55" y1="-2.55" x2="4.55" y2="-2.55" width="0.05" layer="39"/>
+<wire x1="4.55" y1="-2.55" x2="4.55" y2="2.55" width="0.05" layer="39"/>
+<wire x1="4.55" y1="2.55" x2="-4.55" y2="2.55" width="0.05" layer="39"/>
+<text x="-3.32" y="2.4" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.71" y="-3.7" size="1.27" layer="27">&gt;VALUE</text>
+<smd name="1" x="-3.1" y="0" dx="2.35" dy="2.45" layer="1"/>
+<smd name="2" x="3.1" y="0" dx="2.35" dy="2.45" layer="1"/>
+</package>
+</packages>
+<symbols>
+<symbol name="T491X106K050AT">
+<text x="0" y="3.81" size="1.778" layer="95">&gt;NAME</text>
+<text x="0" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="0" y1="-1.905" x2="0.635" y2="1.905" layer="94"/>
+<rectangle x1="1.905" y1="-1.905" x2="2.54" y2="1.905" layer="94"/>
+<pin name="1" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+<pin name="2" x="-2.54" y="0" visible="pad" length="short" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="T491X106K050AT" prefix="C">
+<description>SURFACE MOUNT TANTALUM &lt;a href="https://pricing.snapeda.com/parts/T491X106K050AT/KEMET/view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="T491X106K050AT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="CAPMP7343X430N">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="DESCRIPTION" value=" 10 µF Molded Tantalum Capacitors 50 V 2917 (7343 Metric) 700mOhm "/>
+<attribute name="MF" value="KEMET"/>
+<attribute name="MP" value="T491X106K050AT"/>
+<attribute name="PACKAGE" value="SMD-2 KEMET"/>
+<attribute name="PRICE" value="None"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/T491X106K050AT/?ref=eda"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11506,7 +11566,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="D2" library="DO-214AB" deviceset="DO-214AB" device=""/>
 <part name="D1" library="PMEG4020ETP_115" deviceset="PMEG4020ETP,115" device=""/>
-<part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
+<part name="C12" library="T491X106K050AT" deviceset="T491X106K050AT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11837,9 +11897,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="D1" gate="G$1" x="-160.02" y="35.56" smashed="yes" rot="R90">
 <attribute name="NAME" x="-162.56" y="30.48" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="C3" gate="G$1" x="-134.62" y="38.1" smashed="yes">
-<attribute name="NAME" x="-133.604" y="38.735" size="1.778" layer="95"/>
-<attribute name="VALUE" x="-133.604" y="33.909" size="1.778" layer="96"/>
+<instance part="C12" gate="G$1" x="-134.62" y="35.56" smashed="yes" rot="R90">
+<attribute name="NAME" x="-138.43" y="35.56" size="1.778" layer="95" rot="R90"/>
 </instance>
 </instances>
 <busses>
@@ -12062,7 +12121,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="CC" gate="G$1" pin="2"/>
 <wire x1="-167.64" y1="33.02" x2="-167.64" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="-134.62" y1="33.02" x2="-134.62" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="-134.62" y1="27.94" x2="-160.02" y2="27.94" width="0.1524" layer="91"/>
 <wire x1="-160.02" y1="27.94" x2="-167.64" y2="27.94" width="0.1524" layer="91"/>
@@ -12072,6 +12130,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="-160.02" y1="30.48" x2="-160.02" y2="27.94" width="0.1524" layer="91"/>
 <junction x="-160.02" y="27.94"/>
+<pinref part="C12" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -12793,7 +12852,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-172.72" y1="43.18" x2="-172.72" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="-172.72" y1="43.18" x2="-177.8" y2="43.18" width="0.1524" layer="91"/>
 <label x="-177.8" y="43.18" size="1.778" layer="95" rot="R180" xref="yes"/>
-<pinref part="C3" gate="G$1" pin="1"/>
 <wire x1="-172.72" y1="45.72" x2="-134.62" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="-134.62" y1="45.72" x2="-134.62" y2="40.64" width="0.1524" layer="91"/>
 <junction x="-172.72" y="45.72"/>
@@ -12807,6 +12865,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-124.46" y="53.34" size="1.778" layer="95" xref="yes"/>
 <wire x1="-134.62" y1="45.72" x2="-134.62" y2="53.34" width="0.1524" layer="91"/>
 <junction x="-134.62" y="45.72"/>
+<pinref part="C12" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U1" gate="A" pin="FB/SENSE"/>

@@ -1665,52 +1665,6 @@ reflow soldering</description>
 </package>
 </packages>
 </library>
-<library name="diode" urn="urn:adsk.eagle:library:210">
-<description>&lt;b&gt;Diodes&lt;/b&gt;&lt;p&gt;
-Based on the following sources:
-&lt;ul&gt;
-&lt;li&gt;Motorola : www.onsemi.com
-&lt;li&gt;Fairchild : www.fairchildsemi.com
-&lt;li&gt;Philips : www.semiconductors.com
-&lt;li&gt;Vishay : www.vishay.de
-&lt;/ul&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="DO41-10" urn="urn:adsk.eagle:footprint:43094/1" library_version="8">
-<description>&lt;B&gt;DIODE&lt;/B&gt;&lt;p&gt;
-diameter 2.54 mm, horizontal, grid 10.16 mm</description>
-<wire x1="2.032" y1="-1.27" x2="-2.032" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="2.032" y1="-1.27" x2="2.032" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-2.032" y1="1.27" x2="2.032" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-2.032" y1="1.27" x2="-2.032" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="5.08" y1="0" x2="4.064" y2="0" width="0.762" layer="51"/>
-<wire x1="-5.08" y1="0" x2="-4.064" y2="0" width="0.762" layer="51"/>
-<wire x1="-0.635" y1="0" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="0.635" x2="1.016" y2="-0.635" width="0.1524" layer="21"/>
-<wire x1="1.016" y1="-0.635" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="1.524" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="1.016" y2="0.635" width="0.1524" layer="21"/>
-<wire x1="0" y1="0.635" x2="0" y2="0" width="0.1524" layer="21"/>
-<wire x1="0" y1="0" x2="0" y2="-0.635" width="0.1524" layer="21"/>
-<pad name="A" x="5.08" y="0" drill="1.1176"/>
-<pad name="C" x="-5.08" y="0" drill="1.1176"/>
-<text x="-2.032" y="1.651" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-2.032" y="-2.794" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-1.651" y1="-1.27" x2="-1.143" y2="1.27" layer="21"/>
-<rectangle x1="2.032" y1="-0.381" x2="3.937" y2="0.381" layer="21"/>
-<rectangle x1="-3.937" y1="-0.381" x2="-2.032" y2="0.381" layer="21"/>
-</package>
-</packages>
-<packages3d>
-<package3d name="DO41-10" urn="urn:adsk.eagle:package:43336/1" type="box" library_version="8">
-<description>DIODE
-diameter 2.54 mm, horizontal, grid 10.16 mm</description>
-<packageinstances>
-<packageinstance name="DO41-10"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
 <library name="SparkFun-Capacitors" urn="urn:adsk.eagle:library:510">
 <description>&lt;h3&gt;SparkFun Capacitors&lt;/h3&gt;
 This library contains capacitors. 
@@ -2255,11 +2209,6 @@ design rules under a new name.</description>
 <attribute name="SPICEPREFIX" value="C" x="49" y="32" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="60.73" y="34.46" size="1.27" layer="27"/>
 </element>
-<element name="D99" library="diode" library_urn="urn:adsk.eagle:library:210" package="DO41-10" package3d_urn="urn:adsk.eagle:package:43336/1" value="1N4004" x="54" y="54" smashed="yes">
-<attribute name="NAME" x="51.968" y="55.651" size="1.27" layer="25" ratio="10"/>
-<attribute name="POPULARITY" value="82" x="54" y="28" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="51.968" y="51.206" size="1.27" layer="27" ratio="10"/>
-</element>
 <element name="C10" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" package="1206" package3d_urn="urn:adsk.eagle:package:37426/1" value="10uF" x="37" y="45" smashed="yes">
 <attribute name="NAME" x="37" y="46.143" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
 <attribute name="PROD_ID" value="CAP-10057" x="37" y="45" size="1.778" layer="27" display="off"/>
@@ -2270,26 +2219,26 @@ design rules under a new name.</description>
 <attribute name="PROD_ID" value="CAP-10057" x="37" y="41" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="37" y="39.857" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="D2" library="DO-214AB" package="DO-214AB" value="DO-214AB" x="5" y="-4" smashed="yes">
-<attribute name="AVAILABILITY" value="Not in stock" x="5" y="-4" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value=" 143.85V Clamp 11.1A Ipp Tvs Diode Surface Mount DO-214AB (SMCJ) " x="5" y="-4" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Littelfuse Inc." x="5" y="-4" size="1.778" layer="27" display="off"/>
-<attribute name="MP" value="DO-214AB" x="5" y="-4" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="-0.842" y="-3.3" size="0.4" layer="25"/>
-<attribute name="PACKAGE" value="DO-214AB-214 Littelfuse Inc." x="5" y="-4" size="1.778" layer="27" display="off"/>
-<attribute name="PRICE" value="None" x="5" y="-4" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-0.842" y="-4.7" size="0.4" layer="27" align="top-left"/>
+<element name="D2" library="DO-214AB" package="DO-214AB" value="DO-214AB" x="79" y="44" smashed="yes">
+<attribute name="AVAILABILITY" value="Not in stock" x="79" y="44" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value=" 143.85V Clamp 11.1A Ipp Tvs Diode Surface Mount DO-214AB (SMCJ) " x="79" y="44" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Littelfuse Inc." x="79" y="44" size="1.778" layer="27" display="off"/>
+<attribute name="MP" value="DO-214AB" x="79" y="44" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="73.158" y="44.7" size="0.4" layer="25"/>
+<attribute name="PACKAGE" value="DO-214AB-214 Littelfuse Inc." x="79" y="44" size="1.778" layer="27" display="off"/>
+<attribute name="PRICE" value="None" x="79" y="44" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="73.158" y="43.3" size="0.4" layer="27" align="top-left"/>
 </element>
-<element name="D1" library="PMEG4020ETP_115" package="SODFL4725X110N" value="PMEG4020ETP,115" x="-6" y="-3" smashed="yes">
-<attribute name="AVAILABILITY" value="In Stock" x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="DESCRIPTION" value=" Diode Schottky 40 V 2A Surface Mount SOD-128/CFP5 " x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="MF" value="Nexperia USA Inc." x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="MP" value="PMEG4020ETP,115" x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="-9.35" y="-0.05" size="1.27" layer="25"/>
-<attribute name="PACKAGE" value="SOD-128 Nexperia USA" x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="PRICE" value="None" x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/PMEG4020ETP,115/?ref=eda" x="-6" y="-3" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="-9.35" y="-5.95" size="1.27" layer="27" align="top-left"/>
+<element name="D1" library="PMEG4020ETP_115" package="SODFL4725X110N" value="PMEG4020ETP,115" x="72" y="52" smashed="yes">
+<attribute name="AVAILABILITY" value="In Stock" x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="DESCRIPTION" value=" Diode Schottky 40 V 2A Surface Mount SOD-128/CFP5 " x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value="Nexperia USA Inc." x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="MP" value="PMEG4020ETP,115" x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="68.65" y="54.95" size="1.27" layer="25"/>
+<attribute name="PACKAGE" value="SOD-128 Nexperia USA" x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="PRICE" value="None" x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/PMEG4020ETP,115/?ref=eda" x="72" y="52" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="68.65" y="49.05" size="1.27" layer="27" align="top-left"/>
 </element>
 </elements>
 <signals>
@@ -2348,7 +2297,6 @@ design rules under a new name.</description>
 <contactref element="U$2" pad="-"/>
 <contactref element="U1" pad="4"/>
 <contactref element="CC" pad="2"/>
-<contactref element="D99" pad="A"/>
 <contactref element="C11" pad="2"/>
 <contactref element="C10" pad="2"/>
 <contactref element="POWER" pad="5"/>
@@ -2392,8 +2340,7 @@ design rules under a new name.</description>
 <wire x1="6.05" y1="82" x2="7" y2="77.785" width="0" layer="19" extent="1-1"/>
 <wire x1="5.095" y1="91.9" x2="6.05" y2="82" width="0" layer="19" extent="1-1"/>
 <wire x1="14.88" y1="97.62" x2="5.095" y2="91.9" width="0" layer="19" extent="1-1"/>
-<wire x1="59.08" y1="54" x2="37.5362" y2="49.095" width="0" layer="19" extent="1-1"/>
-<wire x1="62.95" y1="37" x2="59.08" y2="54" width="0" layer="19" extent="1-1"/>
+<wire x1="62.95" y1="37" x2="38.75" y2="38" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="BMP384_1" pad="10"/>
@@ -2924,7 +2871,7 @@ design rules under a new name.</description>
 <contactref element="C4" pad="2"/>
 <contactref element="D2" pad="OUT"/>
 <wire x1="49.95" y1="30" x2="37.5362" y2="51.635" width="0" layer="19" extent="1-1"/>
-<wire x1="8.302" y1="-4" x2="49.95" y2="30" width="0" layer="19" extent="1-1"/>
+<wire x1="82.302" y1="44" x2="49.95" y2="30" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VSW">
 <contactref element="C4" pad="1"/>
@@ -2934,9 +2881,9 @@ design rules under a new name.</description>
 <signal name="SENSE">
 <contactref element="U1" pad="3"/>
 <contactref element="U1" pad="5"/>
-<contactref element="D99" pad="C"/>
-<wire x1="37.5362" y1="50.365" x2="48.92" y2="54" width="0" layer="19" extent="1-1"/>
-<wire x1="42.4638" y1="49.095" x2="37.5362" y2="50.365" width="0" layer="19" extent="1-1"/>
+<contactref element="D1" pad="1"/>
+<wire x1="42.4638" y1="49.095" x2="69.8" y2="52" width="0" layer="19" extent="1-1"/>
+<wire x1="37.5362" y1="50.365" x2="42.4638" y2="49.095" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VC">
 <contactref element="CC" pad="1"/>

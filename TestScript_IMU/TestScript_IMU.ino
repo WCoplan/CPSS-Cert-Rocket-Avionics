@@ -13,4 +13,6 @@ void loop() {
 
   imu.readGyro(gx, gy, gz);
   imu.readAccel(ax, ay, az);
+
+  delay(1);
 }

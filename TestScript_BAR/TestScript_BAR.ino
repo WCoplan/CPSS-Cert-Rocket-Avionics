@@ -1,78 +1,70 @@
-/**
- * @brief Basic example demonstrating usage of 107-Arduino-BMP388 library.
- */
+/***************************************************************************
+  This is a library for the BMP3XX temperature & pressure sensor
 
-/**************************************************************************************
- * INCLUDE
- **************************************************************************************/
+  Designed specifically to work with the Adafruit BMP388 Breakout
+  ----> http://www.adafruit.com/products/3966
 
+  These sensors use I2C or SPI to communicate, 2 or 4 pins are required
+  to interface.
+
+  Adafruit invests time and resources providing this open source code,
+  please support Adafruit and open-source hardware by purchasing products
+  from Adafruit!
+
+  Written by Limor Fried & Kevin Townsend for Adafruit Industries.
+  BSD license, all text above must be included in any redistribution
+ ***************************************************************************/
+
+#include <Wire.h>
 #include <SPI.h>
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BMP3XX.h"
 
-#include <107-Arduino-BMP388.h>
+#define BMP_SCK 13
+#define BMP_MISO 12
+#define BMP_MOSI 11
+#define BMP_CS 10
 
-/**************************************************************************************
- * CONSTANTS
- **************************************************************************************/
+#define SEALEVELPRESSURE_HPA (1013.25)
 
-static int const BMP388_CS_PIN  = 2;
-static int const BMP388_INT_PIN = 6;
+Adafruit_BMP3XX bmp;
 
-/**************************************************************************************
- * NAMESPACE
- **************************************************************************************/
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+  Serial.println("Adafruit BMP388 / BMP390 test");
 
-using namespace drone;
+  if (!bmp.begin_I2C()) {   // hardware I2C mode, can pass in address & alt Wire
+  //if (! bmp.begin_SPI(BMP_CS)) {  // hardware SPI mode  
+  //if (! bmp.begin_SPI(BMP_CS, BMP_SCK, BMP_MISO, BMP_MOSI)) {  // software SPI mode
+    Serial.println("Could not find a valid BMP3 sensor, check wiring!");
+    while (1);
+  }
 
-/**************************************************************************************
- * GLOBAL VARIABLES
- **************************************************************************************/
-
-ArduinoBMP388 bmp388([](){ digitalWrite(BMP388_CS_PIN, LOW); },
-                     [](){ digitalWrite(BMP388_CS_PIN, HIGH); },
-                     [](uint8_t const d) -> uint8_t { return SPI.transfer(d); },
-                     [](unit::Pressure const pressure)
-                     {
-                         Serial.print(pressure.value() / 100.0);
-                         Serial.print(" hPa / ");
-                         Serial.print(ArduinoBMP388::convertPressureToAltitude(pressure).value());
-                         Serial.println(" m");
-                     },
-                     [](unit::Temperature const temperature)
-                     {
-                         Serial.print(temperature.value() + 273.15);
-                         Serial.println(" °C");
-                     });
-
-/**************************************************************************************
- * SETUP/LOOP
- **************************************************************************************/
-
-void setup()
-{
-  Serial.begin(9600);
-  while(!Serial) { }
-
-  /* Print data of BMP388 sensor. */
-  Serial.print(bmp388);
-
-  /* Setup SPI access */
-  SPI.begin();
-  pinMode(BMP388_CS_PIN, OUTPUT);
-  digitalWrite(BMP388_CS_PIN, HIGH);
-
-  /* Attach interrupt handler */
-  pinMode(BMP388_INT_PIN, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(BMP388_INT_PIN), [](){ bmp388.onExternalEventHandler(); }, FALLING);
-
-  /* Configure BMP388 */
-  bmp388.begin(BMP388::OutputDataRate::ODR_12_5_Hz);
+  // Set up oversampling and filter initialization
+  bmp.setTemperatureOversampling(BMP3_OVERSAMPLING_8X);
+  bmp.setPressureOversampling(BMP3_OVERSAMPLING_4X);
+  bmp.setIIRFilterCoeff(BMP3_IIR_FILTER_COEFF_3);
+  bmp.setOutputDataRate(BMP3_ODR_50_HZ);
 }
 
-void loop()
-{
+void loop() {
+  if (! bmp.performReading()) {
+    Serial.println("Failed to perform reading :(");
+    return;
+  }
+  Serial.print("Temperature = ");
+  Serial.print(bmp.temperature);
+  Serial.println(" *C");
 
+  Serial.print("Pressure = ");
+  Serial.print(bmp.pressure / 100.0);
+  Serial.println(" hPa");
+
+  Serial.print("Approx. Altitude = ");
+  Serial.print(bmp.readAltitude(SEALEVELPRESSURE_HPA));
+  Serial.println(" m");
+
+  Serial.println();
+  delay(2000);
 }
-
-/**************************************************************************************
- * FUNCTION DEFINITION
- **************************************************************************************/

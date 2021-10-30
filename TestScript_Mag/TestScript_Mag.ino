@@ -1,4 +1,4 @@
-#include "Adafruit_MLX90395.h"
+#include "src/Adafruit_MLX90395.h"
 
 Adafruit_MLX90395 sensor = Adafruit_MLX90395();
 
@@ -13,7 +13,7 @@ void setup(void)
 
   Serial.println("Starting Adafruit MLX90395 Demo");
   
-  if (! sensor.begin_SPI()) {          // hardware I2C mode, can pass in address & alt Wire
+  if (! sensor.begin_I2C()) {          // hardware I2C mode, can pass in address & alt Wire
     Serial.println("No sensor found ... check your wiring?");
     while (1) { delay(10); }
   }

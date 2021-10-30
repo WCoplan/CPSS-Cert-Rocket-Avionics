@@ -1,6 +1,7 @@
-#include "library/ICM-20608-G.h"
+#include "src/ICM-20608-G.h"
+#include "src/ICM-20608-G_registers.h"
 
-ICM_20608_G imu(GyroRange::G_500DEGS, AccelRange::A_4_g);
+ICM_20608_G imu(GyroRange::G_500_DEGS, AccelRange::A_4_G);
 
 void setup() {
   SPI.begin();

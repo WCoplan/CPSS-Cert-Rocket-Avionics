@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <SPI.h>
 
-#define CS D10
+#define CS 10
 
 enum GyroRange
 {

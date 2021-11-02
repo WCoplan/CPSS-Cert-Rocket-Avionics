@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -11719,9 +11719,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="P+8" gate="1" x="-297.18" y="86.36" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-297.18" y="83.82" size="1.778" layer="96"/>
 </instance>
-<instance part="R5" gate="G$1" x="-322.58" y="101.6" smashed="yes" rot="R90">
-<attribute name="NAME" x="-324.0786" y="97.79" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-319.278" y="97.79" size="1.778" layer="96" rot="R90"/>
+<instance part="R5" gate="G$1" x="-335.28" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="-336.7786" y="97.79" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="-331.978" y="97.79" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="+3V8" gate="G$1" x="-355.6" y="35.56" smashed="yes">
 <attribute name="VALUE" x="-353.06" y="35.56" size="1.778" layer="96" rot="R90"/>
@@ -12500,7 +12500,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="T1" gate="A" pin="G"/>
 <wire x1="-314.96" y1="91.44" x2="-322.58" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="-322.58" y1="91.44" x2="-322.58" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-322.58" y1="91.44" x2="-335.28" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LED-ER" class="0">
@@ -12531,7 +12531,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="BATV" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="-322.58" y1="106.68" x2="-322.58" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-335.28" y1="106.68" x2="-322.58" y2="114.3" width="0.1524" layer="91"/>
 <label x="-322.58" y="114.3" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>

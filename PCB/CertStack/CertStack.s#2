@@ -11548,6 +11548,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R11" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="??"/>
 <part name="GND37" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11892,6 +11893,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </instance>
 <instance part="P+1" gate="1" x="-88.9" y="116.84" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-93.98" y="119.38" size="1.778" layer="96"/>
+</instance>
+<instance part="P+4" gate="1" x="-238.76" y="111.76" smashed="yes" rot="R90">
+<attribute name="VALUE" x="-233.68" y="109.22" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -12329,6 +12333,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C1" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="2"/>
 <pinref part="P+1" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<pinref part="U2" gate="A" pin="FB/SENSE"/>
+<wire x1="-228.6" y1="111.76" x2="-236.22" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="P+4" gate="1" pin="+5V"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -12862,13 +12871,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-147.32" y1="111.76" x2="-134.62" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="C5" gate="G$1" pin="1"/>
 <wire x1="-134.62" y1="104.14" x2="-134.62" y2="111.76" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="OUT" class="0">
-<segment>
-<pinref part="U2" gate="A" pin="FB/SENSE"/>
-<wire x1="-228.6" y1="111.76" x2="-236.22" y2="111.76" width="0.1524" layer="91"/>
-<label x="-236.22" y="111.76" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="N$1" class="0">

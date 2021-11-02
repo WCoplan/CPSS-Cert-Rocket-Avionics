@@ -10474,11 +10474,11 @@ Created by Upverter.com</description>
 <smd name="5" x="3" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
 <smd name="6" x="5" y="0" dx="5.5" dy="1" layer="1" rot="R90"/>
 <smd name="B" x="7.4" y="2.25" dx="3" dy="1.6" layer="1" rot="R90"/>
-<wire x1="-9" y1="4" x2="9" y2="4" width="0.127" layer="25"/>
-<wire x1="9" y1="4" x2="9" y2="-3" width="0.127" layer="25"/>
-<wire x1="9" y1="-3" x2="-9" y2="-3" width="0.127" layer="25"/>
-<wire x1="-9" y1="-3" x2="-9" y2="4" width="0.127" layer="25"/>
-<text x="0" y="4.445" size="1.27" layer="21" align="bottom-center">&gt;NAME</text>
+<wire x1="-8.4" y1="4.95" x2="8.4" y2="4.95" width="0.127" layer="25"/>
+<wire x1="8.4" y1="4.95" x2="8.4" y2="-0.45" width="0.127" layer="25"/>
+<wire x1="8.4" y1="-0.45" x2="-8.4" y2="-0.45" width="0.127" layer="25"/>
+<wire x1="-8.4" y1="-0.45" x2="-8.4" y2="4.95" width="0.127" layer="25"/>
+<text x="0" y="5.545" size="1.27" layer="21" align="bottom-center">&gt;NAME</text>
 </package>
 <package name="PWR-AWG18">
 <pad name="+" x="-1.75" y="0" drill="1.1" diameter="2" shape="square"/>

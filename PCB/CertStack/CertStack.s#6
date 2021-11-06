@@ -11435,6 +11435,73 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
+<library name="ZLDO1117G33TA">
+<packages>
+<package name="SOT230P700X180-4N">
+<wire x1="1.75" y1="3.25" x2="-1.75" y2="3.25" width="0.127" layer="51"/>
+<wire x1="-1.75" y1="3.25" x2="-1.75" y2="-3.25" width="0.127" layer="51"/>
+<wire x1="-1.75" y1="-3.25" x2="1.75" y2="-3.25" width="0.127" layer="51"/>
+<wire x1="1.75" y1="-3.25" x2="1.75" y2="3.25" width="0.127" layer="51"/>
+<wire x1="1.75" y1="3.25" x2="-1.75" y2="3.25" width="0.127" layer="21"/>
+<wire x1="-1.75" y1="3.25" x2="-1.75" y2="-3.25" width="0.127" layer="21"/>
+<wire x1="-1.75" y1="-3.25" x2="1.75" y2="-3.25" width="0.127" layer="21"/>
+<wire x1="1.75" y1="-3.25" x2="1.75" y2="3.25" width="0.127" layer="21"/>
+<circle x="-4.5" y="2.3" radius="0.1" width="0.2" layer="21"/>
+<wire x1="4.165" y1="3.5" x2="4.165" y2="-3.5" width="0.05" layer="39"/>
+<wire x1="4.165" y1="-3.5" x2="-4.165" y2="-3.5" width="0.05" layer="39"/>
+<wire x1="-4.165" y1="-3.5" x2="-4.165" y2="3.5" width="0.05" layer="39"/>
+<wire x1="-4.165" y1="3.5" x2="4.165" y2="3.5" width="0.05" layer="39"/>
+<text x="-4" y="4" size="1.27" layer="25">&gt;NAME</text>
+<text x="-4" y="-5" size="1.27" layer="27">&gt;VALUE</text>
+<circle x="-4.5" y="2.3" radius="0.1" width="0.2" layer="51"/>
+<smd name="1" x="-3.01" y="2.3" dx="1.81" dy="0.89" layer="1" roundness="25"/>
+<smd name="2" x="-3.01" y="0" dx="1.81" dy="0.89" layer="1" roundness="25"/>
+<smd name="3" x="-3.01" y="-2.3" dx="1.81" dy="0.89" layer="1" roundness="25"/>
+<smd name="4" x="3.01" y="0" dx="1.81" dy="0.89" layer="1" roundness="25"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ZLDO1117G33TA">
+<wire x1="-10.16" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="5.08" x2="10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="10.16" y1="-5.08" x2="-10.16" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-10.16" y1="-5.08" x2="-10.16" y2="5.08" width="0.254" layer="94"/>
+<text x="-10.16" y="5.969" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="-7.62" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="VIN" x="-15.24" y="2.54" length="middle" direction="in"/>
+<pin name="VOUT" x="15.24" y="2.54" length="middle" direction="out" rot="R180"/>
+<pin name="GND" x="15.24" y="-2.54" length="middle" direction="pwr" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="ZLDO1117G33TA" prefix="U">
+<description>Linear Voltage Regulator IC Positive Fixed 1 Output 1A SOT-223-3  &lt;a href="https://pricing.snapeda.com/parts/ZLDO1117G33TA/Diodes%20Inc./view-part?ref=eda"&gt;Check prices&lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="ZLDO1117G33TA" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT230P700X180-4N">
+<connects>
+<connect gate="G$1" pin="GND" pad="1"/>
+<connect gate="G$1" pin="VIN" pad="3"/>
+<connect gate="G$1" pin="VOUT" pad="2 4"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="AVAILABILITY" value="In Stock"/>
+<attribute name="DESCRIPTION" value=" Linear Voltage Regulator IC Positive Fixed 1 Output 1A SOT-223-3 "/>
+<attribute name="MF" value="Diodes Inc."/>
+<attribute name="MP" value="ZLDO1117G33TA"/>
+<attribute name="PACKAGE" value="SOT-223 Diodes Inc."/>
+<attribute name="PRICE" value="None"/>
+<attribute name="PURCHASE-URL" value="https://pricing.snapeda.com/search/part/ZLDO1117G33TA/?ref=eda"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -11549,6 +11616,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND37" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="U6" library="ZLDO1117G33TA" deviceset="ZLDO1117G33TA" device=""/>
+<part name="+3V12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="P+5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
+<part name="GND38" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="C13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="4.7uF"/>
+<part name="GND39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="C14" library="SparkFun-Capacitors" library_urn="urn:adsk.eagle:library:510" deviceset="10UF" device="-1206-6.3V-20%" package3d_urn="urn:adsk.eagle:package:37426/1" value="10uF"/>
+<part name="GND40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11719,9 +11794,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="P+8" gate="1" x="-297.18" y="86.36" smashed="yes" rot="R270">
 <attribute name="VALUE" x="-297.18" y="83.82" size="1.778" layer="96"/>
 </instance>
-<instance part="R5" gate="G$1" x="-335.28" y="101.6" smashed="yes" rot="R90">
-<attribute name="NAME" x="-336.7786" y="97.79" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-331.978" y="97.79" size="1.778" layer="96" rot="R90"/>
+<instance part="R5" gate="G$1" x="-322.58" y="101.6" smashed="yes" rot="R90">
+<attribute name="NAME" x="-324.0786" y="97.79" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="-319.278" y="97.79" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="+3V8" gate="G$1" x="-355.6" y="35.56" smashed="yes">
 <attribute name="VALUE" x="-353.06" y="35.56" size="1.778" layer="96" rot="R90"/>
@@ -11896,6 +11971,33 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </instance>
 <instance part="P+4" gate="1" x="-238.76" y="111.76" smashed="yes" rot="R90">
 <attribute name="VALUE" x="-233.68" y="109.22" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="U6" gate="G$1" x="-388.62" y="-81.28" smashed="yes">
+<attribute name="NAME" x="-398.78" y="-75.311" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-398.78" y="-88.9" size="1.778" layer="96"/>
+</instance>
+<instance part="+3V12" gate="G$1" x="-363.22" y="-78.74" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-363.22" y="-81.28" size="1.778" layer="96"/>
+</instance>
+<instance part="P+5" gate="1" x="-411.48" y="-78.74" smashed="yes" rot="R90">
+<attribute name="VALUE" x="-406.4" y="-81.28" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="GND38" gate="1" x="-368.3" y="-88.9" smashed="yes">
+<attribute name="VALUE" x="-370.84" y="-91.44" size="1.778" layer="96"/>
+</instance>
+<instance part="C13" gate="G$1" x="-370.84" y="-71.12" smashed="yes">
+<attribute name="NAME" x="-369.824" y="-70.485" size="1.778" layer="95"/>
+<attribute name="VALUE" x="-369.824" y="-75.311" size="1.778" layer="96"/>
+</instance>
+<instance part="GND39" gate="1" x="-370.84" y="-63.5" smashed="yes" rot="R180">
+<attribute name="VALUE" x="-368.3" y="-60.96" size="1.778" layer="96" rot="R180"/>
+</instance>
+<instance part="C14" gate="G$1" x="-403.86" y="-86.36" smashed="yes">
+<attribute name="NAME" x="-402.336" y="-83.439" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="-402.336" y="-88.519" size="1.778" layer="96" font="vector"/>
+</instance>
+<instance part="GND40" gate="1" x="-403.86" y="-93.98" smashed="yes">
+<attribute name="VALUE" x="-406.4" y="-96.52" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -12134,6 +12236,22 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-271.78" y1="86.36" x2="-271.78" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="GND37" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="GND"/>
+<pinref part="GND38" gate="1" pin="GND"/>
+<wire x1="-373.38" y1="-83.82" x2="-368.3" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="-368.3" y1="-83.82" x2="-368.3" y2="-86.36" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C13" gate="G$1" pin="1"/>
+<pinref part="GND39" gate="1" pin="GND"/>
+<wire x1="-370.84" y1="-68.58" x2="-370.84" y2="-66.04" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="GND40" gate="1" pin="GND"/>
+<pinref part="C14" gate="G$1" pin="2"/>
+<wire x1="-403.86" y1="-91.44" x2="-403.86" y2="-88.9" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -12223,6 +12341,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="DATA" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="86.36" x2="10.16" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="+3V10" gate="G$1" pin="+3V3"/>
+</segment>
+<segment>
+<pinref part="U6" gate="G$1" pin="VOUT"/>
+<pinref part="+3V12" gate="G$1" pin="+3V3"/>
+<wire x1="-373.38" y1="-78.74" x2="-370.84" y2="-78.74" width="0.1524" layer="91"/>
+<pinref part="C13" gate="G$1" pin="2"/>
+<wire x1="-370.84" y1="-78.74" x2="-365.76" y2="-78.74" width="0.1524" layer="91"/>
+<wire x1="-370.84" y1="-76.2" x2="-370.84" y2="-78.74" width="0.1524" layer="91"/>
+<junction x="-370.84" y="-78.74"/>
 </segment>
 </net>
 <net name="CS_BAR" class="0">
@@ -12338,6 +12465,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U2" gate="A" pin="FB/SENSE"/>
 <wire x1="-228.6" y1="111.76" x2="-236.22" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="1" pin="+5V"/>
+</segment>
+<segment>
+<pinref part="P+5" gate="1" pin="+5V"/>
+<pinref part="U6" gate="G$1" pin="VIN"/>
+<wire x1="-408.94" y1="-78.74" x2="-403.86" y2="-78.74" width="0.1524" layer="91"/>
+<pinref part="C14" gate="G$1" pin="1"/>
+<wire x1="-403.86" y1="-81.28" x2="-403.86" y2="-78.74" width="0.1524" layer="91"/>
+<junction x="-403.86" y="-78.74"/>
 </segment>
 </net>
 <net name="SDA" class="0">
@@ -12500,7 +12635,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="T1" gate="A" pin="G"/>
 <wire x1="-314.96" y1="91.44" x2="-322.58" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="-322.58" y1="91.44" x2="-335.28" y2="96.52" width="0.1524" layer="91"/>
+<wire x1="-322.58" y1="91.44" x2="-322.58" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LED-ER" class="0">
@@ -12531,7 +12666,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <net name="BATV" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="-335.28" y1="106.68" x2="-322.58" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="-322.58" y1="106.68" x2="-322.58" y2="114.3" width="0.1524" layer="91"/>
 <label x="-322.58" y="114.3" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>

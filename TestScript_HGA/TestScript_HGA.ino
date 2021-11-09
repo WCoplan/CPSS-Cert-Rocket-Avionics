@@ -15,7 +15,7 @@ Distributed as-is; no warranty is given.
 *******************************************************/
 
 #include <Wire.h>
-#include "SparkFun_Qwiic_KX13X.h"
+#include "src/SparkFun_Qwiic_KX13X.h"
 
 QwiicKX132 kxAccel;
 //QwiicKX134 kxAccel; // Uncomment this if using the KX134 - check your board

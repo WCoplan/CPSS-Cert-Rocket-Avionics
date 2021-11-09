@@ -17,8 +17,8 @@
 
 #include <Wire.h>
 #include <SPI.h>
-#include "src/Adafruit_Sensor-master/Adafruit_Sensor.h"
-#include "src/Adafruit_BMP3XX-master/Adafruit_BMP3XX.h"
+#include <Adafruit_Sensor.h>
+#include "Adafruit_BMP3XX.h"
 
 #define BMP_SCK 13
 #define BMP_MISO 12

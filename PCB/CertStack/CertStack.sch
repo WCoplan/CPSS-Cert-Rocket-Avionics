@@ -12654,6 +12654,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-259.08" y1="50.8" x2="-228.6" y2="50.8" width="0.1524" layer="91"/>
 <label x="-228.6" y="50.8" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="16"/>
+<wire x1="-363.22" y1="-10.16" x2="-350.52" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-350.52" y="-10.16" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="INT" class="0">
 <segment>
@@ -12695,6 +12700,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U5" gate="G$0" pin="CS"/>
 <wire x1="-146.05" y1="45.72" x2="-186.69" y2="45.72" width="0.1524" layer="91"/>
 <label x="-186.69" y="45.72" size="1.778" layer="95" rot="MR0" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="15"/>
+<wire x1="-363.22" y1="-15.24" x2="-350.52" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-350.52" y="-15.24" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -13260,13 +13270,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="CAMERA" gate="G$1" pin="6"/>
 <wire x1="-17.78" y1="86.36" x2="-17.78" y2="83.82" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="CS_ACCEL" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="15"/>
-<wire x1="-363.22" y1="-15.24" x2="-350.52" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-350.52" y="-15.24" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="CS_SD" class="0">

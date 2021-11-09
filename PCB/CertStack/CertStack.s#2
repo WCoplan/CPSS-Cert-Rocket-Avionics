@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
@@ -11784,9 +11784,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND43" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="+3V17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
-<part name="C16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
-<part name="C17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2"/>
+<part name="C16" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
+<part name="C17" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-US" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="0.1uF"/>
 <part name="GND44" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND45" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND46" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="+3V8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="GND47" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12199,6 +12203,18 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="GND44" gate="1" x="-175.26" y="-86.36" smashed="yes">
 <attribute name="VALUE" x="-177.8" y="-88.9" size="1.778" layer="96"/>
 </instance>
+<instance part="GND45" gate="1" x="-172.72" y="-60.96" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-175.26" y="-58.42" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="GND46" gate="1" x="-167.64" y="-76.2" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-170.18" y="-73.66" size="1.778" layer="96" rot="R270"/>
+</instance>
+<instance part="+3V8" gate="G$1" x="-121.92" y="-76.2" smashed="yes" rot="R270">
+<attribute name="VALUE" x="-127" y="-73.66" size="1.778" layer="96"/>
+</instance>
+<instance part="GND47" gate="1" x="-127" y="-81.28" smashed="yes" rot="R90">
+<attribute name="VALUE" x="-124.46" y="-83.82" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12482,6 +12498,19 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="C17" gate="G$1" pin="2"/>
 <wire x1="-175.26" y1="-83.82" x2="-175.26" y2="-81.28" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND45" gate="1" pin="GND"/>
+<pinref part="U$1" gate="G$1" pin="SDO-ADDR"/>
+<wire x1="-170.18" y1="-60.96" x2="-165.1" y2="-60.96" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="TRIG"/>
+<pinref part="GND46" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="NC"/>
+<pinref part="GND47" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -12612,6 +12641,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-175.26" y1="-71.12" x2="-182.88" y2="-71.12" width="0.1524" layer="91"/>
 <wire x1="-175.26" y1="-73.66" x2="-175.26" y2="-71.12" width="0.1524" layer="91"/>
 <junction x="-175.26" y="-71.12"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="CS"/>
+<wire x1="-129.54" y1="-76.2" x2="-124.46" y2="-76.2" width="0.1524" layer="91"/>
+<pinref part="+3V8" gate="G$1" pin="+3V3"/>
 </segment>
 </net>
 <net name="CS_BAR" class="0">

@@ -11793,6 +11793,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="R12" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="4.7k"/>
 <part name="R13" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0805" package3d_urn="urn:adsk.eagle:package:23553/2" value="4.7k"/>
 <part name="+3V18" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
+<part name="GND48" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND49" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND50" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND51" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND52" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12227,6 +12232,21 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="+3V18" gate="G$1" x="-342.9" y="22.86" smashed="yes">
 <attribute name="VALUE" x="-345.44" y="17.78" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="GND48" gate="1" x="33.02" y="134.62" smashed="yes">
+<attribute name="VALUE" x="30.48" y="132.08" size="1.778" layer="96"/>
+</instance>
+<instance part="GND49" gate="1" x="33.02" y="83.82" smashed="yes">
+<attribute name="VALUE" x="30.48" y="81.28" size="1.778" layer="96"/>
+</instance>
+<instance part="GND50" gate="1" x="38.1" y="83.82" smashed="yes">
+<attribute name="VALUE" x="35.56" y="81.28" size="1.778" layer="96"/>
+</instance>
+<instance part="GND51" gate="1" x="81.28" y="109.22" smashed="yes">
+<attribute name="VALUE" x="78.74" y="106.68" size="1.778" layer="96"/>
+</instance>
+<instance part="GND52" gate="1" x="86.36" y="109.22" smashed="yes">
+<attribute name="VALUE" x="83.82" y="106.68" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -12522,6 +12542,31 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="U8" gate="G$1" pin="NC"/>
 <pinref part="GND47" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GND48" gate="1" pin="GND"/>
+<pinref part="TELEM" gate="G$1" pin="5"/>
+<wire x1="33.02" y1="137.16" x2="33.02" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="CAMERA" gate="G$1" pin="5"/>
+<wire x1="33.02" y1="88.9" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="GND49" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="CAMERA" gate="G$1" pin="6"/>
+<wire x1="38.1" y1="88.9" x2="38.1" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="GND50" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GPS" gate="G$1" pin="5"/>
+<wire x1="81.28" y1="114.3" x2="81.28" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="GND51" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="GPS" gate="G$1" pin="6"/>
+<wire x1="86.36" y1="114.3" x2="86.36" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="GND52" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
@@ -12906,6 +12951,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="27.94" y1="88.9" x2="27.94" y2="86.36" width="0.1524" layer="91"/>
 <label x="27.94" y="86.36" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="22"/>
+<wire x1="-381" y1="20.32" x2="-368.3" y2="20.32" width="0.1524" layer="91"/>
+<label x="-368.3" y="20.32" size="1.778" layer="95" xref="yes"/>
+</segment>
 </net>
 <net name="N$19" class="0">
 <segment>
@@ -13260,30 +13310,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U1" gate="G$1" pin="10"/>
 <wire x1="-416.56" y1="-15.24" x2="-426.72" y2="-15.24" width="0.1524" layer="91"/>
 <label x="-426.72" y="-15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
-<net name="N$9" class="0">
-<segment>
-<pinref part="GPS" gate="G$1" pin="5"/>
-<wire x1="81.28" y1="114.3" x2="81.28" y2="111.76" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<pinref part="GPS" gate="G$1" pin="6"/>
-<wire x1="86.36" y1="114.3" x2="86.36" y2="111.76" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="CAMERA" gate="G$1" pin="5"/>
-<wire x1="33.02" y1="88.9" x2="33.02" y2="86.36" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$3" class="0">
-<segment>
-<pinref part="CAMERA" gate="G$1" pin="6"/>
-<wire x1="38.1" y1="88.9" x2="38.1" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="CS_SD" class="0">

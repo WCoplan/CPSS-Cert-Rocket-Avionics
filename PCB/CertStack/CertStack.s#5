@@ -12900,18 +12900,16 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-185.42" y="33.02" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="CS-SD" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="CD/DAT3"/>
-<wire x1="-298.45" y1="-26.67" x2="-303.53" y2="-26.67" width="0.1524" layer="91"/>
-<label x="-303.53" y="-26.67" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
-</net>
 <net name="CC" class="0">
 <segment>
 <pinref part="CAMERA" gate="G$1" pin="4"/>
 <wire x1="27.94" y1="88.9" x2="27.94" y2="86.36" width="0.1524" layer="91"/>
 <label x="27.94" y="86.36" size="1.778" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="22"/>
+<wire x1="-381" y1="20.32" x2="-368.3" y2="20.32" width="0.1524" layer="91"/>
+<label x="-368.3" y="20.32" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -13298,6 +13296,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U1" gate="G$1" pin="14"/>
 <wire x1="-381" y1="-20.32" x2="-368.3" y2="-20.32" width="0.1524" layer="91"/>
 <label x="-368.3" y="-20.32" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<pinref part="J1" gate="G$1" pin="CD/DAT3"/>
+<wire x1="-298.45" y1="-26.67" x2="-304.8" y2="-26.67" width="0.1524" layer="91"/>
+<label x="-304.8" y="-26.67" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="SHDN" class="0">

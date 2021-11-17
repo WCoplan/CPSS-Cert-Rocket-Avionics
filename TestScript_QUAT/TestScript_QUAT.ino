@@ -134,6 +134,7 @@ void loop() {
   updateAccel();
   updateGyro();
   updateHeartbeat();
+  updateDt();
 
   /*
   NOTES FOR VEER (my son luv u kiddo)

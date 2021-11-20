@@ -12759,9 +12759,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-186.69" y="45.72" size="1.778" layer="95" rot="MR0" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="9"/>
-<wire x1="-416.56" y1="-10.16" x2="-426.72" y2="-10.16" width="0.1524" layer="91"/>
-<label x="-426.72" y="-10.16" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="14"/>
+<wire x1="-381" y1="-20.32" x2="-368.3" y2="-20.32" width="0.1524" layer="91"/>
+<label x="-368.3" y="-20.32" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -13286,9 +13286,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="71.12" y="111.76" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="15"/>
-<wire x1="-381" y1="-15.24" x2="-368.3" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-368.3" y="-15.24" size="1.778" layer="95" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="9"/>
+<wire x1="-416.56" y1="-10.16" x2="-426.72" y2="-10.16" width="0.1524" layer="91"/>
+<label x="-426.72" y="-10.16" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="GPS_TX" class="0">
@@ -13298,9 +13298,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="76.2" y="111.76" size="1.778" layer="95" rot="R270" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="14"/>
-<wire x1="-381" y1="-20.32" x2="-368.3" y2="-20.32" width="0.1524" layer="91"/>
-<label x="-368.3" y="-20.32" size="1.778" layer="95" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="10"/>
+<wire x1="-416.56" y1="-15.24" x2="-426.72" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-426.72" y="-15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="CS_SD" class="0">
@@ -13310,9 +13310,9 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="-304.8" y="-26.67" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="10"/>
-<wire x1="-416.56" y1="-15.24" x2="-426.72" y2="-15.24" width="0.1524" layer="91"/>
-<label x="-426.72" y="-15.24" size="1.778" layer="95" rot="R180" xref="yes"/>
+<pinref part="U1" gate="G$1" pin="15"/>
+<wire x1="-381" y1="-15.24" x2="-368.3" y2="-15.24" width="0.1524" layer="91"/>
+<label x="-368.3" y="-15.24" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SHDN" class="0">

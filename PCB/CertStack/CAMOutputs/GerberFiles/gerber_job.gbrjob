@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2021-11-20T17:19:53Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.5.1"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 1.6,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "CertStack"
+        },
+        "Owner": "Ryan Westcott <rwestcot@calpoly.edu>",
+        "Size": {
+            "X": 45,
+            "Y": 98
+        }
+    }
+}

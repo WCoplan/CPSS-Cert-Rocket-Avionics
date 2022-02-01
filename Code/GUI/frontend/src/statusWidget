@@ -1,0 +1,24 @@
+import './App.css';
+import React from 'react';
+import { Box } from 'grommet';
+
+class StatusWidget extends React.Component {
+
+  constructor(props) {
+    super();
+    this.state = {text : props.text,
+                  title : props.title,
+                  gridArea : props.gridArea};
+  }
+
+  render() {
+    return(
+    <Box gridArea="status" background="light-2">
+        <h4 align="center"> Status</h4>
+        <p>blah blah</p>
+    </Box>
+    );
+  }
+}
+export default StatusWidget
+// ReactDOM.render(<App/>, mountNode)

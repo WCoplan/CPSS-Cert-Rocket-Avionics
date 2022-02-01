@@ -14,7 +14,7 @@
 */
 #include "src/SPIMemory.h"
 
-uint32_t strAddr;
+uint32_t dataAddr;
 
 #if defined(ARDUINO_SAMD_ZERO) && defined(SERIAL_PORT_USBVIRTUAL)
 // Required for Serial on Zero based boards
@@ -40,24 +40,46 @@ void setup() {
   while (!Serial) ; // Wait for Serial monitor to open
 #endif
 
-  flash.begin();
+  flash.begin(); 
 
   randomSeed(analogRead(RANDPIN));
-  strAddr = random(0, flash.getCapacity());
-  String inputString = "This is a test String";
-  flash.writeStr(strAddr, inputString);
-  Serial.print(F("Written string: "));
-  Serial.println(inputString);
+  dataAddr = 10;
+  
+  union {
+    float f[4];
+    byte b[16];
+  } data;
+  
+  data.f[0] = 1.123;
+  data.f[1] = 2.234;
+  data.f[2] = 3.345;
+  data.f[3] = 5.444;
+
+  flash.writeByteArray(dataAddr, data.b, 16);
+  
+  Serial.println(F("Written floats: "));
+  Serial.println(data.f[0]);
+  Serial.println(data.f[1]);
+  Serial.println(data.f[2]);
+  Serial.println(data.f[3]);
   Serial.print(F("To address: "));
-  Serial.println(strAddr);
-  String outputString = "";
-  if (flash.readStr(strAddr, outputString)) {
-    Serial.print(F("Read string: "));
-    Serial.println(outputString);
-    Serial.print(F("From address: "));
-    Serial.println(strAddr);
-  }
-  while (!flash.eraseSector(strAddr));
+  Serial.println(dataAddr);
+
+  union {
+    float f[4];
+    byte b[16];
+  } dataOut;
+  
+  flash.readByteArray(dataAddr, dataOut.b, 16);
+  Serial.println(F("Read floats: "));
+  Serial.println(dataOut.f[0]);
+  Serial.println(dataOut.f[1]);
+  Serial.println(dataOut.f[2]);
+  Serial.println(dataOut.f[3]);
+  Serial.print(F("From address: "));
+  Serial.println(dataAddr);
+  
+  while (!flash.eraseSector(dataAddr));
 }
 
 void loop() {

@@ -7,6 +7,7 @@ import StatusWidget from './statusWidget';
 
 import {Grid, Box, Text, Grommet } from 'grommet';
 import { grommet } from 'grommet/themes';
+// import fetch from 'fetch'
 
 import mapImage from "./calpolymap.png";
 
@@ -15,10 +16,15 @@ class App extends React.Component {
 
   constructor() {
     super();
-    this.state = {};
+    this.state = {t: "hello world",
+                  d: "data"};
   }
 
   render() {
+    fetch('http://example.com/movies.json')
+      .then(response => this.setState({t: response})
+      .then(data => this.setState({d: data}));
+
     const data = [
       {
         t: 0,
@@ -129,13 +135,14 @@ class App extends React.Component {
           <Box gridArea="status" background="light-2">
             <h4 align="center"> Status</h4>
             <p>blah blah</p>
+            {this.state.text}
           </Box>
 
           <Box gridArea="gps" >
             <img src={mapImage} height="100%"></img>
           </Box>
         </Grid>
-        ) : (<Text>Grid is not supported by your browser</Text>)
+        ) : (<Text>Grid is not supported by your browser </Text>)
         }
       </Grommet>
       );

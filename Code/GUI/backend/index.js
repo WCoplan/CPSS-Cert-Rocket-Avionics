@@ -72,7 +72,8 @@ app.get('/api/data/', async (req, res) => {
         let data = await readPort();
         return res.json({ status: 'ok', data: data });
     } catch (err) {
-        return res.json({ status: 'error', error: err });
+        console.error(err)
+        return res.json({ status: 'error' });
     }
 });
 
@@ -82,27 +83,23 @@ app.get('*', (req, res) => {
 });
 
 // Functions
-const getData = () => {
+const readPort = () => {
     if (!radioPort || !parser) return null;
     return new Promise((resolve, reject) => {
-        // Send query
-        radioPort.write('\x00', () => {
-            // Parse recieved data
-            parser.on('data', (data) => {
-                let parsed = data.split(',');
-                if (parsed[0] != '\x02' || parsed[parsed.length - 1] != '\x03') {
-                    reject('Invalid start and stop bytes');
-                }
-                parsed = parsed.slice(1,-1)
+        parser.once('data', (data) => {
+            let parsed = data.split(',');
+            if (parsed[0] != '\x02' || parsed[parsed.length - 1] != '\x03') {
+                reject('Invalid start and stop bytes');
+            }
+            parsed = parsed.slice(1,-1)
 
-                let data_obj = {};
-                for (let i = 0; i < DATA_COLS.length; i++) {
-                    data_obj[DATA_COLS[i]] = parsed[i];
-                }
+            let data_obj = {};
+            for (let i = 0; i < DATA_COLS.length; i++) {
+                data_obj[DATA_COLS[i]] = parsed[i];
+            }
 
-                resolve(data_obj);
-            });
-        })
+            resolve(data_obj);
+        });
     });
 }
 
@@ -111,9 +108,9 @@ const closePort = () => {
         // Close port
         radioPort.close((err) => {
             // Check for errors
-            if (err) reject(err);
+            if (err) console.log(err.message);
             resolve();
-        });
+        })
     })
 }
 
@@ -121,7 +118,7 @@ const checkErrors = () => {
     return new Promise((resolve, reject) => {
         radioPort.on('error', (err) => {
             if (err) {
-                reject(err.message);
+                reject(err.message)
             }
         })
         setTimeout(() => {

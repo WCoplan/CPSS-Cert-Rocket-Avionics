@@ -21,10 +21,6 @@ class App extends React.Component {
   }
 
   render() {
-    fetch('http://example.com/movies.json')
-      .then(response => this.setState({t: response})
-      .then(data => this.setState({d: data}));
-
     const data = [
       {
         t: 0,

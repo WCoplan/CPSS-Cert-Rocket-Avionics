@@ -6,35 +6,43 @@ import { Grid, Box, Text, Grommet } from 'grommet';
 import { grommet } from 'grommet/themes';
 import mapImage from "./calpolymap.png";
 import { ReactTerminal, TerminalContextProvider } from "react-terminal";
-import { setPort, getPorts, getData } from './commands.js';
+import { setPort, getPorts } from './commands.js';
 
-const commands = {
-	setport: (port) => {return setPort(port)},
-	getports: () => {return getPorts()},
-	getdata: () => {return getData()}
-};
+let buffer = [];
 
 const App = () => {
 	const [data, setData] = useState([]);
+	const [socket, setSocket] = useState(null);
 
-	// Refresh data every second
+	const commands = {
+		setport: (port) => {return setPort(port, socket, setSocket)},
+		getports: () => {return getPorts()}
+	};
+
+	// Turn socket on if selected
 	useEffect(() => {
-        const interval = setInterval(() => {
-            fetch('/api/data')
-                .then((res) => res.json())
-                .then((res) => {
-					if (res.status == 'ok') {
-						setData(data.push(res.data));
-						setData([...data])
-						console.log(data)
-					}
-                })
-                .catch(err => {
-                    console.error("Error fetching data: ", err);
-                });
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+        if (socket) {
+			socket.on('serialdata', (d) => {
+				buffer.push(d)
+				if (buffer.length == 10) {
+					setData(data => [...data, ...buffer])
+					buffer = []
+				}
+			});
+		}
+		return () => {
+			if (socket) socket.close()
+		}
+    }, [socket]);
+
+	// Detect change in data
+	useEffect(() => {
+        if (data && data.length > 50) {
+			let newdata = data
+			newdata.splice(0, 10)
+			setData(newdata)
+		}
+    }, [data]);
 
 	return (
 		<Grommet full theme={grommet}>

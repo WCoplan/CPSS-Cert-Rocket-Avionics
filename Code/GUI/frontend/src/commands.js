@@ -1,4 +1,11 @@
-export const setPort = async (port) => {
+import io from 'socket.io-client';
+
+// --------------------
+// Commands
+// --------------------
+
+//
+export const setPort = async (port, socket, setSocket) => {
     let status = null
 
     if (!port) return 'Syntax: setport [port]'
@@ -7,8 +14,13 @@ export const setPort = async (port) => {
     await fetch(`/api/port/set/${port}`)
         .then((res) => res.json())
         .then((data) => {
-            if (data.status == 'ok') {
+            if (data.status === 'ok') {
                 status = 'Success'
+                try {
+                    setSocket(io('http://localhost:3001'));
+                } catch (err) {
+                    console.error(err)
+                }
             } else {
                 status = `Error: ${data.error}`
             }
@@ -29,8 +41,8 @@ export const getPorts = async () => {
         .then((res) => res.json())
         .then((data) => {
             for(let i in data) {
-                if (i == 0) paths = data[i].path + ' - ' + data[i].manufacturer + '\n'
-                else paths += data[i].path + ' - ' + data[i].manufacturer + '\n'
+                if (i === 0) paths = data[i].path + '\n'
+                else paths += data[i].path + '\n'
             }
         })
         .catch(err => {
@@ -41,25 +53,4 @@ export const getPorts = async () => {
         return paths
     else
         return 'No open ports found'
-}
-
-export const getData = async () => {
-    let r = null;
-    let status = null;
-
-    // Query backend
-    await fetch('/api/data')
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.status == 'ok')
-                r = data.data;
-            else
-                status = data.error
-        })
-        .catch(err => {
-            console.error("Error fetching data:", err);
-        });
-
-    if (r) return JSON.stringify(r)
-    else return status ? status : 'Unknown error'
 }

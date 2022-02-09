@@ -1,0 +1,11 @@
+Telemetry Notes:
+* Gui app running on windows ground computer handled by ground support. Located in Code/GUI
+* Arduino Library for serial communication Code/Testscripts and eventually Dependencies/
+	- Should be reletively trivial. Ryan recommended sending ASCII start character, then 40 characters, then an end character. If anything is wrong with this "packet" drop it,
+	- We can record the data too if we want.
+
+
+
+Long term:
+Antenna tracker from fround support.
+Control two stepper motors based on the known position of the antenna and ground station

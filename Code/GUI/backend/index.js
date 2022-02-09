@@ -9,14 +9,28 @@ const DATA_COLS = ['battery', 'lat', 'lon', 'height', 'time', 'alt', 'vx',
 
 // Express setup
 const app = express();
+const server = require('http').Server(app);
+const io = require('socket.io')(server, {
+    cors: {
+      origin: "http://localhost:3000",
+      methods: ["GET", "POST"]
+    }
+});
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+
+server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 app.use(express.json({ limit: '1mb' }));
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
 
 // Serial setup with parser
 let radioPort = null;
 let parser = new Readline({ delimiter: '\r\n' });
+
+// Connect to socket
+let connectedSocket = null;
+io.on('connection', (socket) => {
+    connectedSocket = socket;
+});
 
 // Get all ports
 app.get('/api/port/get', async (req, res) => {
@@ -40,7 +54,6 @@ app.get('/api/port/get', async (req, res) => {
 // Set serial port
 app.get('/api/port/set/:port', async (req, res) => {
     const port = req.params.port;
-    // const { port, baud } = req.body;
 
     // Close port before opening another
     if (radioPort) {
@@ -58,52 +71,37 @@ app.get('/api/port/set/:port', async (req, res) => {
         return res.json({ status: 'error', error: err });
     }
 
+    // Turn on parser
     parser = radioPort.pipe(parser);
+    parser.on('data', (data) => {
+        let parsed = data.split(',');
+
+        if (parsed.length != 15) {
+            return 0;
+        } else {
+            let data_obj = {};
+
+            for (let i = 0; i < DATA_COLS.length; i++) {
+                data_obj[DATA_COLS[i]] = parsed[i];
+            }
+
+            io.emit('serialdata', data_obj);
+        }
+    })
+
     return res.json({ status: 'ok' });
 })
 
-// Get stored data
-app.get('/api/data/', async (req, res) => {
-    // Ensure port is initialized
-    if (!radioPort || !parser) return res.json({ status: 'error', error: 'Port uninitialized' });
+// --------------------
+// Assist Functions
+// --------------------
 
-    // Get data
-    try {
-        let data = await getData();
-        return res.json({ status: 'ok', data: data });
-    } catch (err) {
-        return res.json({ status: 'error', error: err });
-    }
-});
-
-// All other GET requests not handled before will return the app
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../frontend/build/', 'index.html'));
-});
-
-// Functions
-const getData = () => {
-    if (!radioPort || !parser) return null;
-    return new Promise((resolve, reject) => { 
-        // Send query
-        radioPort.write('\x00', () => {
-            // Parse recieved data
-            parser.on('data', (data) => {
-                let parsed = data.split(',');
-                if (parsed[0] != '\x02' || parsed[parsed.length - 1] != '\x03') {
-                    reject('Invalid start and stop bytes');
-                }
-                parsed = parsed.slice(1,-1)
-
-                let data_obj = {};
-                for (let i = 0; i < DATA_COLS.length; i++) {
-                    data_obj[DATA_COLS[i]] = parsed[i];
-                }
-
-                resolve(data_obj);
-            });
+const readPort = () => {
+    return new Promise((res, rej) => {
+        parser.on('data', (data) => {
+            console.log(data)
         })
-    });      
+    })
 }
 
 const closePort = () => {
@@ -111,21 +109,21 @@ const closePort = () => {
         // Close port
         radioPort.close((err) => {
             // Check for errors
-            if (err) reject(err);
+            if (err) console.log(err.message);
             resolve();
-        });
+        })
     })
 }
 
 const checkErrors = () => {
     return new Promise((resolve, reject) => {
-        radioPort.on('error', (err) => { 
+        radioPort.on('error', (err) => {
             if (err) {
-                reject(err.message);
+                reject(err.message)
             }
         })
         setTimeout(() => {
             resolve();
-        }, 10);
+        }, 100);
     })
 }

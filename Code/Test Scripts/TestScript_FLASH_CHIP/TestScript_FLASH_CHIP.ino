@@ -14,76 +14,91 @@
 */
 #include "src/SPIMemory.h"
 
-uint32_t dataAddr;
-
-#if defined(ARDUINO_SAMD_ZERO) && defined(SERIAL_PORT_USBVIRTUAL)
-// Required for Serial on Zero based boards
-#define Serial SERIAL_PORT_USBVIRTUAL
-#endif
-
-#if defined (SIMBLEE)
-#define BAUD_RATE 250000
-#define RANDPIN 1
-#else
-#define BAUD_RATE 115200
-#define RANDPIN A0
-#endif
-
-//SPIFlash flash(SS1, &SPI1);       //Use this constructor if using an SPI bus other than the default SPI. Only works with chips with more than one hardware SPI bus
 SPIFlash flash;
 
 bool readSerialStr(String &inputStr);
+void writeDataFrame();
+void readDataFrame(float out[]);
+
+uint32_t f_initialDataPointer;
+uint32_t f_dataPointer;
+float f_ax;
+float f_ay;
+float f_az;
 
 void setup() {
-  Serial.begin(BAUD_RATE);
-#if defined (ARDUINO_SAMD_ZERO) || (__AVR_ATmega32U4__)
-  while (!Serial) ; // Wait for Serial monitor to open
-#endif
+  Serial.begin(115200);
+  
+  flash.begin();
 
-  flash.begin(); 
+  f_initialDataPointer = 10;
+  f_dataPointer = f_initialDataPointer;
 
-  randomSeed(analogRead(RANDPIN));
-  dataAddr = 10;
-  
-  union {
-    float f[4];
-    byte b[16];
-  } data;
-  
-  data.f[0] = 1.123;
-  data.f[1] = 2.234;
-  data.f[2] = 3.345;
-  data.f[3] = 5.444;
+  f_ax = 0.1f;
+  f_ay = 0.2f;
+  f_az = 0.3f;
 
-  flash.writeByteArray(dataAddr, data.b, 16);
-  
-  Serial.println(F("Written floats: "));
-  Serial.println(data.f[0]);
-  Serial.println(data.f[1]);
-  Serial.println(data.f[2]);
-  Serial.println(data.f[3]);
-  Serial.print(F("To address: "));
-  Serial.println(dataAddr);
+  writeDataFrame();
 
-  union {
-    float f[4];
-    byte b[16];
-  } dataOut;
+  f_ax = 0.2f;
+  f_ay = 0.4f;
+  f_az = 0.6f;
+
+  writeDataFrame();
+
+  f_dataPointer = f_initialDataPointer;
   
-  flash.readByteArray(dataAddr, dataOut.b, 16);
-  Serial.println(F("Read floats: "));
-  Serial.println(dataOut.f[0]);
-  Serial.println(dataOut.f[1]);
-  Serial.println(dataOut.f[2]);
-  Serial.println(dataOut.f[3]);
-  Serial.print(F("From address: "));
-  Serial.println(dataAddr);
+  Serial.print(F("Written to address: "));
+  Serial.println(f_dataPointer);
+
+  float arr[3];
+
+  readDataFrame(arr);
+
+  Serial.print(arr[0]);
+  Serial.print(", ");
+  Serial.print(arr[1]);
+  Serial.print(", ");
+  Serial.print(arr[2]);
+  Serial.println();
   
-  while (!flash.eraseSector(dataAddr));
+  while (!flash.eraseSector(f_dataPointer));
 }
 
 void loop() {
+  
+}
 
+void writeDataFrame() {
+  
+  union {
+    float f[3];
+    byte b[12];
+  } dataUnion;
+
+  dataUnion.f[0] = f_ax;
+  dataUnion.f[1] = f_ay;
+  dataUnion.f[2] = f_az;
+
+  flash.writeByteArray(f_dataPointer, dataUnion.b, 12);
+
+  f_dataPointer += 12;
+}
+
+void readDataFrame(float out[]) {
+  
+  union {
+    float f[3];
+    byte b[12];
+  } dataUnion;
+
+  flash.readByteArray(f_dataPointer, dataUnion.b, 12);
+
+  for (int i = 0; i < 3; i++) {
+    out[i] = dataUnion.f[i];
+  }
+
+  f_dataPointer += 12;
 }
 
 //Reads a string from Serial

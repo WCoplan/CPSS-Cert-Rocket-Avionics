@@ -8,18 +8,22 @@ import { ReactTerminal, TerminalContextProvider } from "react-terminal";
 import { setPort, getPorts } from './commands.js';
 
 let buffer = [];
-const BUFF_LEN = 10		// Size of buffer, releases after that many data points have been obtained
+const BUFF_LEN = 5		// Size of buffer, releases after that many data points have been obtained
 const MAX_DISP = 50		// Maximum number of displayed data points
+const Y_ROUND = 50		// The unit for rounding y axises
 
 const App = () => {
 	const [data, setData] = useState([]);
 	const [socket, setSocket] = useState(null);
+	const [maxData, setMaxes] = useState({az : 10, axy : 10, vz : 100, vxy : 100})
+	// const {status, setStatus}
 
 	// Custom commands for terminal
 	const commands = {
 		setport: (port) => {return setPort(port, socket, setSocket)},
 		getports: () => {return getPorts()}
 	};
+
 
 	// Turn socket on if selected
 	useEffect(() => {
@@ -33,6 +37,7 @@ const App = () => {
 					setData(data => [...data, ...buffer])
 					buffer = []
 				}
+
 			});
 		}
 		return () => {
@@ -48,8 +53,29 @@ const App = () => {
 			let newdata = data
 			newdata.splice(0, BUFF_LEN)
 			setData(newdata)
+
+			// Manually setting max data for charting, because Recharts is ASS
+			for(const d of data){
+				var s = maxData
+				var az = s.az
+				var axy = s.axy
+				var vz = s.vz
+				var vxy = s.vxy
+
+				if(parseFloat(d.az) > s.az) az = Math.floor(d.az / Y_ROUND + 1) * Y_ROUND
+
+				if(parseFloat(d.vz) > s.vz) vz = Math.floor(d.vz / Y_ROUND + 1) * Y_ROUND
+
+				if(parseFloat(d.ax) > s.axy) axy = Math.floor(d.ax / Y_ROUND + 1) * Y_ROUND
+				if(parseFloat(d.ay) > s.axy) axy = Math.floor(d.ay / Y_ROUND + 1) * Y_ROUND
+
+				if(parseFloat(d.vx) > s.vxy) vxy = Math.floor(d.vx / Y_ROUND + 1) * Y_ROUND
+				if(parseFloat(d.vy) > s.vxy) vxy = Math.floor(d.vy / Y_ROUND + 1) * Y_ROUND
+
+				setMaxes({az : az, axy : axy, vz : vz, vxy : vxy})
+			}
 		}
-    }, [data]);
+    }, [data, maxData]);
 
 	return (
 		<Grommet full theme={grommet}>
@@ -78,7 +104,8 @@ const App = () => {
 					title={"Acceleration: Z"}
 					dataStrokes={[{key: "az", color: "#8884d8"}]}
 					xAxisDataKey={"time"}
-					gridArea="acc_z">
+					gridArea="acc_z"
+					maxData ={maxData.az}>
 				</LineChartWidget>
 
 				<LineChartWidget
@@ -87,7 +114,8 @@ const App = () => {
 					dataStrokes={[{key: "ax", color: "#8884d8"},
 								{key: "ay", color: "#880088"}]}
 					xAxisDataKey={"time"}
-					gridArea="acc_xy">
+					gridArea="acc_xy"
+					maxData ={maxData.axy}>
 				</LineChartWidget>
 
 				{/* Velocity Graphs */}
@@ -96,7 +124,8 @@ const App = () => {
 					title={"Velocity: Z"}
 					dataStrokes={[{key: "vz", color: "#8884d8"}]}
 					xAxisDataKey={"time"}
-					gridArea="vel_z">
+					gridArea="vel_z"
+					maxData ={maxData.vz}>
 				</LineChartWidget>
 
 				<LineChartWidget
@@ -105,7 +134,8 @@ const App = () => {
 					dataStrokes={[{key: "vx", color: "#8884d8"},
 								{key: "vy", color: "#880088"}]}
 					xAxisDataKey={"time"}
-					gridArea="vel_xy">
+					gridArea="vel_xy"
+					maxData ={maxData.vxy}>
 				</LineChartWidget>
 
 				<Box gridArea="terminal">
@@ -118,8 +148,27 @@ const App = () => {
 					</TerminalContextProvider>
 				</Box>
 
-				<Box gridArea="status" background="light-2">
+				<Box gridArea="status" background="light-2" height="100%">
 					<h4 align="center"> Status</h4>
+					<table>
+						<tr>
+							<td>Max Acc  Z: {maxData.az} m/s^2</td>
+							<td>Acc Z: {maxData.az} m/s^2</td>
+						</tr>
+						<tr>
+							<td>Max Vel  Z: {maxData.vz} m/s</td>
+							<td>Vel Z: {maxData.vz} m/s^2</td>
+						</tr>
+						<tr>
+							<td>Max Acc XY: {maxData.axy} m/s^2</td>
+							<td>Acc XY: {maxData.axy} m/s^2</td>
+						</tr>
+						<tr>
+							<td>Max Vel XY: {maxData.vxy} m/s</td>
+							{/* <td>Vel XY {maxData.az} m/s^2</td> */}
+							<td>{data.length}</td>
+						</tr>
+					</table>
 				</Box>
 
 				<Box gridArea="gps" >

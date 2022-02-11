@@ -14,12 +14,15 @@ const MAX_DISP = 50		// Maximum number of displayed data points
 const App = () => {
 	const [data, setData] = useState([]);
 	const [socket, setSocket] = useState(null);
+	const [maxData, setMaxes] = useState({az : 0, axy : 0, vz : 0, vxy : 0})
+	// const [curData, setCur] = useState({az : 0, axy : 0, vz : 0, vxy : 0})
 
 	// Custom commands for terminal
 	const commands = {
 		setport: (port) => {return setPort(port, socket, setSocket)},
 		getports: () => {return getPorts()}
 	};
+
 
 	// Turn socket on if selected
 	useEffect(() => {
@@ -33,6 +36,7 @@ const App = () => {
 					setData(data => [...data, ...buffer])
 					buffer = []
 				}
+
 			});
 		}
 		return () => {
@@ -50,6 +54,32 @@ const App = () => {
 			setData(newdata)
 		}
     }, [data]);
+
+	//For setting max values of graphs
+	useEffect(() => {
+		// If data length is greater than max, slice off first buffer size
+		const c = data[-1]
+
+        for(const d of data){
+			var s = maxData
+			var az = s.az
+			var axy = s.axy
+			var vz = s.vz
+			var vxy = s.vxy
+
+			if(parseFloat(d.az) > s.az) az = parseFloat(d.az)
+
+			if(parseFloat(d.vz) > s.vz) vz = parseFloat(d.vz)
+
+			if(parseFloat(d.ax) > s.axy) axy = parseFloat(d.ax)
+			if(parseFloat(d.ay) > s.axy) axy = parseFloat(d.ay)
+
+			if(parseFloat(d.vx) > s.vxy) vxy = parseFloat(d.vx)
+			if(parseFloat(d.vy) > s.vxy) vxy = parseFloat(d.vy)
+
+			setMaxes({az : az, axy : axy, vz : vz, vxy : vxy})
+		}
+    }, [data, maxData]);
 
 	return (
 		<Grommet full theme={grommet}>
@@ -78,7 +108,8 @@ const App = () => {
 					title={"Acceleration: Z"}
 					dataStrokes={[{key: "az", color: "#8884d8"}]}
 					xAxisDataKey={"time"}
-					gridArea="acc_z">
+					gridArea="acc_z"
+					maxData ={maxData.az}>
 				</LineChartWidget>
 
 				<LineChartWidget
@@ -87,7 +118,8 @@ const App = () => {
 					dataStrokes={[{key: "ax", color: "#8884d8"},
 								{key: "ay", color: "#880088"}]}
 					xAxisDataKey={"time"}
-					gridArea="acc_xy">
+					gridArea="acc_xy"
+					maxData ={maxData.axy}>
 				</LineChartWidget>
 
 				{/* Velocity Graphs */}
@@ -96,7 +128,8 @@ const App = () => {
 					title={"Velocity: Z"}
 					dataStrokes={[{key: "vz", color: "#8884d8"}]}
 					xAxisDataKey={"time"}
-					gridArea="vel_z">
+					gridArea="vel_z"
+					maxData ={maxData.vz}>
 				</LineChartWidget>
 
 				<LineChartWidget
@@ -105,7 +138,8 @@ const App = () => {
 					dataStrokes={[{key: "vx", color: "#8884d8"},
 								{key: "vy", color: "#880088"}]}
 					xAxisDataKey={"time"}
-					gridArea="vel_xy">
+					gridArea="vel_xy"
+					maxData ={maxData.vxy}>
 				</LineChartWidget>
 
 				<Box gridArea="terminal">
@@ -118,8 +152,26 @@ const App = () => {
 					</TerminalContextProvider>
 				</Box>
 
-				<Box gridArea="status" background="light-2">
+				<Box gridArea="status" background="light-2" height="100%">
 					<h4 align="center"> Status</h4>
+					<table>
+						<tr>
+							<td>Max Acc  Z: {maxData.az} m/s^2</td>
+							<td>Acc Z: {maxData.az} m/s^2</td>
+						</tr>
+						<tr>
+							<td>Max Vel  Z: {maxData.vz} m/s</td>
+							<td>Vel Z: {maxData.vz} m/s^2</td>
+						</tr>
+						<tr>
+							<td>Max Acc XY: {maxData.axy} m/s^2</td>
+							<td>Acc XY: {maxData.axy} m/s^2</td>
+						</tr>
+						<tr>
+							<td>Max Vel XY: {maxData.vxy} m/s</td>
+							<td>Vel XY {maxData.az} m/s^2</td>
+						</tr>
+					</table>
 				</Box>
 
 				<Box gridArea="gps" >

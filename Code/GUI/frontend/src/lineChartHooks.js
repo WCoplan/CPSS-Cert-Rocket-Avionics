@@ -3,7 +3,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { Box } from 'grommet';
 
 const LineChartWidget = (props) => {
-    const { gridArea, title, data, xAxisDataKey, dataStrokes } = props
+    const { gridArea, title, data, xAxisDataKey, dataStrokes, maxData } = props
 
     return (
         <Box gridArea={gridArea} background="light-2">
@@ -12,7 +12,7 @@ const LineChartWidget = (props) => {
                 <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey={xAxisDataKey} />
-                <YAxis height='100' />
+                <YAxis height='100' domain={[0, maxData]}/>
                 <Tooltip />
                 <Legend />
                 {dataStrokes.map((line) => {

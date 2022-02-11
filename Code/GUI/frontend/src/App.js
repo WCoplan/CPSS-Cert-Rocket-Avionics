@@ -8,8 +8,8 @@ import { ReactTerminal, TerminalContextProvider } from "react-terminal";
 import { setPort, getPorts } from './commands.js';
 
 let buffer = [];
-const BUFF_LEN = 5		// Size of buffer, releases after that many data points have been obtained
-const MAX_DISP = 50		// Maximum number of displayed data points
+var buff_len = 5		// Size of buffer, releases after that many data points have been obtained
+var max_disp = 50		// Maximum number of displayed data points
 const Y_ROUND = 50		// The unit for rounding y axises
 
 const App = () => {
@@ -21,8 +21,17 @@ const App = () => {
 	// Custom commands for terminal
 	const commands = {
 		setport: (port) => {return setPort(port, socket, setSocket)},
-		getports: () => {return getPorts()}
+		getports: () => {return getPorts()},
+
+		setbuffer: (bufferlen) =>{buff_len = bufferlen; return `Buffer set to ${buff_len}.`},
+		getbuffer: () =>{return buff_len},
+
+		setnumpoints: (numpoints) => {max_disp = numpoints; return `Number of datapoints set to ${buff_len}.`},
+		getnumpoints: () => {return max_disp}
 	};
+
+	// Some local commands
+
 
 
 	// Turn socket on if selected
@@ -33,7 +42,7 @@ const App = () => {
 				buffer.push(d)
 
 				// Append buffer to data if buffer max is reached
-				if (buffer.length == BUFF_LEN) {
+				if (buffer.length == buff_len) {
 					setData(data => [...data, ...buffer])
 					buffer = []
 				}
@@ -48,10 +57,10 @@ const App = () => {
 	// Detect change in data
 	useEffect(() => {
 		// If data length is greater than max, slice off first buffer size
-        if (data && data.length > MAX_DISP) {
+        if (data && data.length > max_disp) {
 			// This is weird, splice returns the spliced part though 🥴
 			let newdata = data
-			newdata.splice(0, BUFF_LEN)
+			newdata.splice(0, buff_len)
 			setData(newdata)
 
 			// Manually setting max data for charting, because Recharts is ASS
@@ -101,7 +110,7 @@ const App = () => {
 				{/* Acceleration Graphs */}
 				<LineChartWidget
 					data={data}
-					title={"Acceleration: Z"}
+					title={"Acceleration: Z (m/s/s)"}
 					dataStrokes={[{key: "az", color: "#8884d8"}]}
 					xAxisDataKey={"time"}
 					gridArea="acc_z"
@@ -110,7 +119,7 @@ const App = () => {
 
 				<LineChartWidget
 					data={data}
-					title={"Acceleration: X,Y"}
+					title={"Acceleration: X,Y (m/s/s)"}
 					dataStrokes={[{key: "ax", color: "#8884d8"},
 								{key: "ay", color: "#880088"}]}
 					xAxisDataKey={"time"}
@@ -121,7 +130,7 @@ const App = () => {
 				{/* Velocity Graphs */}
 				<LineChartWidget
 					data={data}
-					title={"Velocity: Z"}
+					title={"Velocity: Z (m/s)"}
 					dataStrokes={[{key: "vz", color: "#8884d8"}]}
 					xAxisDataKey={"time"}
 					gridArea="vel_z"
@@ -130,7 +139,7 @@ const App = () => {
 
 				<LineChartWidget
 					data={data}
-					title={"Velocity: X,Y"}
+					title={"Velocity: X,Y (m/s)"}
 					dataStrokes={[{key: "vx", color: "#8884d8"},
 								{key: "vy", color: "#880088"}]}
 					xAxisDataKey={"time"}

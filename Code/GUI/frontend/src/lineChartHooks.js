@@ -11,7 +11,7 @@ const LineChartWidget = (props) => {
             <ResponsiveContainer>
                 <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey={xAxisDataKey} />
+                <XAxis dataKey={xAxisDataKey} domain={[0,100]} />
                 <YAxis height='100' domain={[0, maxData]}/>
                 <Tooltip />
                 <Legend />

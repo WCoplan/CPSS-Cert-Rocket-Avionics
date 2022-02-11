@@ -8,14 +8,15 @@ import { ReactTerminal, TerminalContextProvider } from "react-terminal";
 import { setPort, getPorts } from './commands.js';
 
 let buffer = [];
-const BUFF_LEN = 10		// Size of buffer, releases after that many data points have been obtained
+const BUFF_LEN = 5		// Size of buffer, releases after that many data points have been obtained
 const MAX_DISP = 50		// Maximum number of displayed data points
+const Y_ROUND = 50		// The unit for rounding y axises
 
 const App = () => {
 	const [data, setData] = useState([]);
 	const [socket, setSocket] = useState(null);
-	const [maxData, setMaxes] = useState({az : 0, axy : 0, vz : 0, vxy : 0})
-	// const [curData, setCur] = useState({az : 0, axy : 0, vz : 0, vxy : 0})
+	const [maxData, setMaxes] = useState({az : 10, axy : 10, vz : 100, vxy : 100})
+	// const {status, setStatus}
 
 	// Custom commands for terminal
 	const commands = {
@@ -52,32 +53,27 @@ const App = () => {
 			let newdata = data
 			newdata.splice(0, BUFF_LEN)
 			setData(newdata)
-		}
-    }, [data]);
 
-	//For setting max values of graphs
-	useEffect(() => {
-		// If data length is greater than max, slice off first buffer size
-		const c = data[-1]
+			// Manually setting max data for charting, because Recharts is ASS
+			for(const d of data){
+				var s = maxData
+				var az = s.az
+				var axy = s.axy
+				var vz = s.vz
+				var vxy = s.vxy
 
-        for(const d of data){
-			var s = maxData
-			var az = s.az
-			var axy = s.axy
-			var vz = s.vz
-			var vxy = s.vxy
+				if(parseFloat(d.az) > s.az) az = Math.floor(d.az / Y_ROUND + 1) * Y_ROUND
 
-			if(parseFloat(d.az) > s.az) az = parseFloat(d.az)
+				if(parseFloat(d.vz) > s.vz) vz = Math.floor(d.vz / Y_ROUND + 1) * Y_ROUND
 
-			if(parseFloat(d.vz) > s.vz) vz = parseFloat(d.vz)
+				if(parseFloat(d.ax) > s.axy) axy = Math.floor(d.ax / Y_ROUND + 1) * Y_ROUND
+				if(parseFloat(d.ay) > s.axy) axy = Math.floor(d.ay / Y_ROUND + 1) * Y_ROUND
 
-			if(parseFloat(d.ax) > s.axy) axy = parseFloat(d.ax)
-			if(parseFloat(d.ay) > s.axy) axy = parseFloat(d.ay)
+				if(parseFloat(d.vx) > s.vxy) vxy = Math.floor(d.vx / Y_ROUND + 1) * Y_ROUND
+				if(parseFloat(d.vy) > s.vxy) vxy = Math.floor(d.vy / Y_ROUND + 1) * Y_ROUND
 
-			if(parseFloat(d.vx) > s.vxy) vxy = parseFloat(d.vx)
-			if(parseFloat(d.vy) > s.vxy) vxy = parseFloat(d.vy)
-
-			setMaxes({az : az, axy : axy, vz : vz, vxy : vxy})
+				setMaxes({az : az, axy : axy, vz : vz, vxy : vxy})
+			}
 		}
     }, [data, maxData]);
 
@@ -169,7 +165,8 @@ const App = () => {
 						</tr>
 						<tr>
 							<td>Max Vel XY: {maxData.vxy} m/s</td>
-							<td>Vel XY {maxData.az} m/s^2</td>
+							{/* <td>Vel XY {maxData.az} m/s^2</td> */}
+							<td>{data.length}</td>
 						</tr>
 					</table>
 				</Box>

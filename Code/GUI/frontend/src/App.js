@@ -3,13 +3,12 @@ import React, { useState, useEffect } from 'react';
 import LineChartWidget from './lineChartHooks'
 import { Grid, Box, Text, Grommet } from 'grommet';
 import { grommet } from 'grommet/themes';
-import mapImage from "./calpolymap.png";
 import { ReactTerminal, TerminalContextProvider } from "react-terminal";
-import { setPort, getPorts } from './commands.js';
+import { setPort, getPorts, endConnection } from './commands.js';
 
 let buffer = [];
 var buff_len = 5		// Size of buffer, releases after that many data points have been obtained
-var max_disp = 50		// Maximum number of displayed data points
+var max_disp = 100		// Maximum number of displayed data points
 const Y_ROUND = 50		// The unit for rounding y axises
 
 const App = () => {
@@ -21,9 +20,13 @@ const App = () => {
 											az : 0, mx : 0, my : 0, mz : 0 })
 
 	// Custom commands for terminal
+	// TODO: Log loader
 	const commands = {
-		setport: (port) => {return setPort(port, socket, setSocket)},
+		setport: (port) => {
+			return setPort(port, socket, setSocket)
+		},
 		getports: () => {return getPorts()},
+		endconnection: () => {return endConnection(socket)},
 
 		setbuffer: (bufferlen) =>{buff_len = bufferlen; return `Buffer set to ${buff_len}.`},
 		getbuffer: () =>{return buff_len},
@@ -32,40 +35,35 @@ const App = () => {
 		getnumpoints: () => {return max_disp}
 	};
 
-	// Some local commands
-	// IMPLEMENT CODE HERE
-
-
-	// Turn socket on if selected
-	useEffect(() => {
-        if (socket) {
-			socket.on('serialdata', (d) => {
-				// Push data to buffer
-				buffer.push(d)
-
-				// Append buffer to data if buffer max is reached
-				if (buffer.length == buff_len) {
-					setData(data => [...data, ...buffer])
-					buffer = []
-				}
-
-			});
+	// Socket data handler
+	const dataHandler = (d) => {
+		// Push data to buffer
+		buffer.push(d)
+	
+		// Append buffer to data if buffer max is reached
+		if (buffer.length == buff_len) {
+			setData(data => [...data, ...buffer])
+			buffer = []
 		}
+	}
+
+	// Enable socket listening on socket change
+	useEffect(() => {
+        if (socket) socket.on('serialdata', dataHandler);
 		return () => {
-			if (socket) socket.close()
+			// Turn off listener
+			if (socket) socket.off('serialdata', dataHandler);
 		}
     }, [socket]);
 
 	// Detect change in data
 	useEffect(() => {
-		// If data length is greater than max, slice off first buffer size
+		// If data length is greater than max, keep newest
         if (data && data.length > max_disp) {
-			// This is weird, splice returns the spliced part though 🥴
-			let newdata = data
-			newdata.splice(0, buff_len)
-			setData(newdata)
+			setData(data.slice(-max_disp))
 
 			// Manually setting max data for charting, because Recharts is ASS
+			// TODO: Change scaling based on max of data, not max overall
 			for(const d of data){
 				var s = maxData
 				var az = s.az
@@ -84,9 +82,9 @@ const App = () => {
 				if(parseFloat(d.vy) > s.vxy) vxy = Math.floor(d.vy / Y_ROUND + 1) * Y_ROUND
 
 				setMaxes({az : az, axy : axy, vz : vz, vxy : vxy})
-				setStatus({battery : s.battery, lat : s.lat, lon : s.lon, height : s.height, time : s.time,
-							alt : s.alt, vx : s.vx, vy : s.vy, vz : s.vz, ax : s.ax, ay : s.ay,
-							az : s.az, mx : s.mx, my : s.my, mz : s.mz })
+				setStatus({battery : d.battery, lat : d.lat, lon : d.lon, height : d.height, time : d.time,
+							alt : d.alt, vx : d.vx, vy : d.vy, vz : d.vz, ax : d.ax, ay : d.ay,
+							az : d.az, mx : d.mx, my : d.my, mz : d.mz })
 			}
 		}
     }, [data, maxData, setStatus]);

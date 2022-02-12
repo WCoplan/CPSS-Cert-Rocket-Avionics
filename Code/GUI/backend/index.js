@@ -1,6 +1,8 @@
 const express = require("express");
 const SerialPort = require('serialport')
 const path = require("path");
+const fs = require('fs');
+const { connected } = require("process");
 let Readline = SerialPort.parsers.Readline;
 
 const BAUD_RATE = 57600;
@@ -17,7 +19,6 @@ const io = require('socket.io')(server, {
     }
 });
 const PORT = process.env.PORT || 3001;
-
 server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 app.use(express.json({ limit: '1mb' }));
 app.use(express.static(path.resolve(__dirname, '../frontend/build')));
@@ -30,6 +31,17 @@ let parser = new Readline({ delimiter: '\r\n' });
 let connectedSocket = null;
 io.on('connection', (socket) => {
     connectedSocket = socket;
+
+    socket.on('end', () => {
+        socket.disconnect();
+    });
+});
+
+// Create logs directory if it doesn't already exist
+let fname = null;
+fs.mkdir('./logs', (err) => {
+    if (err && err.errno !== -4075)     // Ignore EEXIST error
+        throw err
 });
 
 // Get all ports
@@ -71,23 +83,27 @@ app.get('/api/port/set/:port', async (req, res) => {
         return res.json({ status: 'error', error: err });
     }
 
-    // Turn on parser
+    // Open new csv
+    fname = `${new Date().toISOString().replace(/[:.]/g, '_')}.csv`
+    fs.writeFile(`./logs/${fname}`, DATA_COLS + '\r\n', 'utf8', (err) => {
+        if (err) console.log(err);
+    });
+
+    // Turn off old parser, turn on new
+    parser.off('data', parseData);
     parser = radioPort.pipe(parser);
-    parser.on('data', (data) => {
-        let parsed = data.split(',');
+    parser.on('data', parseData)
 
-        if (parsed.length != 15) {
-            return 0;
-        } else {
-            let data_obj = {};
+    return res.json({ status: 'ok' });
+})
 
-            for (let i = 0; i < DATA_COLS.length; i++) {
-                data_obj[DATA_COLS[i]] = parsed[i];
-            }
-
-            io.emit('serialdata', data_obj);
-        }
-    })
+// Get all ports
+app.get('/api/port/end', async (req, res) => {
+    try {
+        parser.off('data', parseData);
+    } catch (err) {
+        return res.json({ status: 'error', error: err });
+    }
 
     return res.json({ status: 'ok' });
 })
@@ -96,12 +112,26 @@ app.get('/api/port/set/:port', async (req, res) => {
 // Assist Functions
 // --------------------
 
-const readPort = () => {
-    return new Promise((res, rej) => {
-        parser.on('data', (data) => {
-            console.log(data)
-        })
-    })
+const parseData = (data) => {
+    let parsed = data.split(',');
+
+    if (parsed.length != 15) {
+        return 0;
+    } else {
+        // Turn data array into readable JSON
+        let data_obj = {};
+        for (let i = 0; i < DATA_COLS.length; i++) {
+            data_obj[DATA_COLS[i]] = parsed[i];
+        }
+
+        // Append to log file
+        fs.appendFile(`./logs/${fname}`, parsed + '\r\n', (err) => {
+            if (err) console.log(err);
+        });
+
+        // Emit to socket
+        io.emit('serialdata', data_obj);
+    }
 }
 
 const closePort = () => {

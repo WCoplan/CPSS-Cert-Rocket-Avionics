@@ -22,7 +22,7 @@ const LineChartWidget = (props) => {
                 <Tooltip />
                 <Legend layout="horizontal" align="right"/>
                 {dataStrokes.map((line) => {
-                    return <Line type="monotone" isAnimationActive={false} dataKey={line.key} stroke={line.color} />;
+                    return <Line type="monotone" isAnimationActive={false} key={line.key} dataKey={line.key} stroke={line.color} />;
                 })}
                 </LineChart>
             </ResponsiveContainer>

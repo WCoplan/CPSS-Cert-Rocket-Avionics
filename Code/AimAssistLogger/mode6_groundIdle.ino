@@ -20,6 +20,7 @@ void loop_groundIdle() {
     storeStart(currentStore.c_str());
     storeAllData();
     storeEnd();
+    f_flash.eraseChip();
   }
 
   if (turnOff) {

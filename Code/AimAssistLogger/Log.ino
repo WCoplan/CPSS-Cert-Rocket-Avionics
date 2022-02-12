@@ -112,7 +112,11 @@ void logAllValues() {
   data.f[18] = f_oriD;
   data.f[19] = dt;
   data.f[20] = f_mode;
-  
+
+//  Serial.print("Logging ");
+//  Serial.print(f_pressure);
+//  Serial.print(" to addr ");
+//  Serial.println(f_flashPointer);
 
   f_flash.writeByteArray(f_flashPointer, data.b, 84);
 
@@ -129,6 +133,11 @@ void storeAllData() {
 
   for (int dataPointer = 0; dataPointer < f_flashPointer; dataPointer += 84) {
     f_flash.readByteArray(dataPointer, data.b, 84);
+
+//    Serial.print("Reading ");
+//    Serial.print(data.f[1]);
+//    Serial.print(" from addr ");
+//    Serial.println(dataPointer);
     
     // record misson elapsed time value
     storeWrite(data.f[0], 0);

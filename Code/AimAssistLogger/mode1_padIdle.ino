@@ -28,7 +28,7 @@ void loop_padIdle() {
   f_ori.zeroRoll();
 
   // If we start to move up, change modes!
-  if (f_accelY > gravity + u_launchDetect && millis() > 150000) {
+  if (f_accelY > gravity + u_launchDetect && millis() > 150000 || millis() > 20000) {
     f_logOveride = true;
     f_startMET = millis();
     setup_flight();

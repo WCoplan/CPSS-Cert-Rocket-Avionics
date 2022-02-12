@@ -169,7 +169,7 @@ void setup() {
   }
 
   // Baro boot sequence:
-  f_bootStatus = baro.begin_SPI(0x76);
+  f_bootStatus = baro.begin_I2C(0x76);
   if (f_bootStatus < 0) {
     Serial.println("ERROR: baro.begin()");
     f_bootError = 7;
@@ -187,7 +187,7 @@ void setup() {
     Serial.println("ERROR: Card failed, or not present");
   }
 
-  f_flash.eraseChip();
+  
   if (!f_flash.begin()) {
     f_bootError = 9;
     Serial.println("ERROR: flash.begin()");
@@ -252,7 +252,6 @@ void loop() {
 
   if ((millis() - f_lastLog >= 1000 / f_logInterval) || f_logOveride) {
     logAllValues();
-    sendAllTelemetry();
     f_lastLog = millis();
     f_logOveride = false;
   }

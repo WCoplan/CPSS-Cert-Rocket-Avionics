@@ -16,10 +16,10 @@ void loop_groundIdle() {
   turnOff = f_MET > f_modeStartTime[6] + 10000;
 
   if (millis() - start_groundIdle > 5000) {
-    currentLog = newLog();
-    logStart(currentLog.c_str());
-    logAllData();
-    logEnd();
+    currentStore = newStore();
+    storeStart(currentStore.c_str());
+    storeAllData();
+    storeEnd();
   }
 
   if (turnOff) {

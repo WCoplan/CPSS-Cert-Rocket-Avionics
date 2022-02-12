@@ -47,8 +47,8 @@ uint32_t f_maxFlashPointer = 2000;
 
 // random variables
 char  CSVseparator = ',';               // Just a variable to store a comma as a character
-String currentLog;                      // Logfile name
-File  logFile;                          // Global logFile variable
+String currentStore;                      // store file name
+File  storeFile;                          // Global storeFile variable
 int lastMicros = 0;
 int currentMicros = 0;
 float dt = 0.0;
@@ -243,7 +243,7 @@ void loop() {
   }
 
   if ((millis() - f_lastLog >= 1000 / f_logInterval) || f_logOveride) {
-    storeAllValues();
+    logAllValues();
     f_lastLog = millis();
     f_logOveride = false;
   }

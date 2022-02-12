@@ -3,7 +3,7 @@ inline String generateName(int fileNo) {
   return "log_" + String(fileNo) + ".csv";
 }
 
-const char* newLog() {
+const char* newStore() {
   // iterate over potential log names until a unique one is generated
   int fileNo = 0;
   
@@ -28,41 +28,41 @@ const char* newLog() {
   //File dataFile = SD.open(generateName(fileNo).c_str(), FILE_WRITE);
 
   // verify log integrity
-  logStart(generateName(fileNo));
-  if(logFile){
-    logFile.println("MET,Pressure,ASL,AGL,VelocityX,accelX,accelY,accelZ,gyrX,gyrY,gyrZ,batV,pitch,yaw,roll,oriA,oriB,oriC,oriD,dt,A-Project,groundTime,dSlope,apogee,currentFlap,flapSet,mode,desiredMotorDirection,motorThrottle");
+  storeStart(generateName(fileNo));
+  if(storeFile){
+    storeFile.println("MET,Pressure,ASL,AGL,VelocityX,accelX,accelY,accelZ,gyrX,gyrY,gyrZ,batV,pitch,yaw,roll,oriA,oriB,oriC,oriD,dt,mode");
   }
-  logEnd();
+  storeEnd();
   Serial.println("log init success");
 
   return generateName(fileNo).c_str();
 }
 
-void logWrite(int data, bool newLine) {
-  logWriteFinal(data, newLine, true);
+void storeWrite(int data, bool newLine) {
+  storeWriteFinal(data, newLine, true);
 }
 
-void logWrite(float data, bool newLine) {
-  logWriteFinal(data, newLine, false);
+void storeWrite(float data, bool newLine) {
+  storeWriteFinal(data, newLine, false);
 }
 
-void logWriteFinal(float data, bool newLine, bool useInt) {
+void storeWriteFinal(float data, bool newLine, bool useInt) {
   // test log existence
-  if (logFile) {
+  if (storeFile) {
     if(useInt){
-      logFile.print(int(data));
+      storeFile.print(int(data));
       //Serial.print(int(data));
     }
     else {
-      logFile.print(data, 7);
+      storeFile.print(data, 7);
       //Serial.print(data, 7);
     }
     if (newLine) {
-      logFile.print("\n");
+      storeFile.print("\n");
       //Serial.print("\n");
     }
     else {
-      logFile.print(CSVseparator);
+      storeFile.print(CSVseparator);
       //Serial.print(CSVseparator);
     }
 
@@ -72,15 +72,15 @@ void logWriteFinal(float data, bool newLine, bool useInt) {
   }
 }
 
-void logStart(String logName) {
-  logFile = SD.open(logName.c_str(), FILE_WRITE);
+void storeStart(String storeName) {
+  storeFile = SD.open(storeName.c_str(), FILE_WRITE);
 }
 
-void logEnd() {
-  logFile.close();
+void storeEnd() {
+  storeFile.close();
 }
 
-void storeAllValues() {
+void logAllValues() {
 
   if (f_flashPointer > f_maxFlashPointer) {
     return;
@@ -119,7 +119,7 @@ void storeAllValues() {
   
 }
 
-void logAllData() {
+void storeAllData() {
 
   union {
     float f[21];
@@ -130,42 +130,42 @@ void logAllData() {
     f_flash.readByteArray(dataPointer, data.b, 84);
 
     // record misson elapsed time value
-    logWrite(data.f[0], 0);
+    storeWrite(data.f[0], 0);
 
     // record barometer values
-    logWrite(data.f[1], 0);
-    logWrite(data.f[2], 0);
-    logWrite(data.f[3], 0);
-    logWrite(data.f[4], 0);
+    storeWrite(data.f[1], 0);
+    storeWrite(data.f[2], 0);
+    storeWrite(data.f[3], 0);
+    storeWrite(data.f[4], 0);
     //logWrite(velSmooth.getVal(), 0);
 
     // record acceleration values
-    logWrite(data.f[5], 0);
-    logWrite(data.f[6], 0);
-    logWrite(data.f[7], 0);
+    storeWrite(data.f[5], 0);
+    storeWrite(data.f[6], 0);
+    storeWrite(data.f[7], 0);
 
     // record gyro values
-    logWrite(data.f[8], 0);
-    logWrite(data.f[9], 0);
-    logWrite(data.f[10], 0);
+    storeWrite(data.f[8], 0);
+    storeWrite(data.f[9], 0);
+    storeWrite(data.f[10], 0);
 
     // record voltage value
-    logWrite(data.f[11], 0);
+    storeWrite(data.f[11], 0);
 
     // record quaternion values
-    logWrite(data.f[12], 0);
-    logWrite(data.f[13], 0);
-    logWrite(data.f[14], 0);
-    logWrite(data.f[15], 0);
-    logWrite(data.f[16], 0);
-    logWrite(data.f[17], 0);
-    logWrite(data.f[18], 0);
+    storeWrite(data.f[12], 0);
+    storeWrite(data.f[13], 0);
+    storeWrite(data.f[14], 0);
+    storeWrite(data.f[15], 0);
+    storeWrite(data.f[16], 0);
+    storeWrite(data.f[17], 0);
+    storeWrite(data.f[18], 0);
 
     // record loop time value
-    logWrite(data.f[19], 0);
+    storeWrite(data.f[19], 0);
 
     // record flight mode value
-    logWrite(data.f[20], 1);
+    storeWrite(data.f[20], 1);
     
   }
 }

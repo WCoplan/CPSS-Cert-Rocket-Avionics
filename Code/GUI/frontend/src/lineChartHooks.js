@@ -1,5 +1,5 @@
 import './App.css';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import { Box } from 'grommet';
 
 const LineChartWidget = (props) => {
@@ -11,10 +11,16 @@ const LineChartWidget = (props) => {
             <ResponsiveContainer>
                 <LineChart data={data} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey={xAxisDataKey} domain={[0,100]} />
-                <YAxis height='100' domain={[0, maxData]}/>
+
+                <XAxis dataKey={xAxisDataKey} domain={[0,100]} >
+                    <Label value="Time (s)" position="bottom"/>
+                </XAxis>
+
+                <YAxis height='100%' domain={[0, maxData]}>
+                </YAxis>
+
                 <Tooltip />
-                <Legend />
+                <Legend layout="horizontal" align="right"/>
                 {dataStrokes.map((line) => {
                     return <Line type="monotone" isAnimationActive={false} dataKey={line.key} stroke={line.color} />;
                 })}

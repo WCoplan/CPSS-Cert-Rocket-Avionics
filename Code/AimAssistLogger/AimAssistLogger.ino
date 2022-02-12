@@ -252,6 +252,7 @@ void loop() {
 
   if ((millis() - f_lastLog >= 1000 / f_logInterval) || f_logOveride) {
     logAllValues();
+    sendAllTelemetry();
     f_lastLog = millis();
     f_logOveride = false;
   }

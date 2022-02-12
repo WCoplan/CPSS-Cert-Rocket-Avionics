@@ -126,9 +126,9 @@ void storeAllData() {
     byte b[84];
   } data;
 
-  for (uint32_t dataPointer = 0; dataPointer < f_flashPointer; dataPointer += 84) {
+  for (int dataPointer = 0; dataPointer < f_flashPointer; dataPointer += 84) {
     f_flash.readByteArray(dataPointer, data.b, 84);
-
+    
     // record misson elapsed time value
     storeWrite(data.f[0], 0);
 

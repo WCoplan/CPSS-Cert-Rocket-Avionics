@@ -8,7 +8,7 @@ void setup_flight() {
 
 void loop_flight() {
   
-  if (f_MET > 300000) {
+  if ((f_AGL < 10 || f_MET > 300000) && (f_MET > 10000)) {
     setup_groundIdle();
   }
 

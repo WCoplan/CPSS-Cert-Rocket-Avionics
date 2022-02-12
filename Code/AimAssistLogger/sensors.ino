@@ -10,7 +10,6 @@ int baroReadingTime = 0;
 
 void updateBaro() {
   baroReadingTime = millis();
-  baro.performReading();
   f_pressure = baro.pressure;
   f_ASL = (1.0 - pow(f_pressure / (u_seaPressure * 100.0), 0.190284)) * 287.15 / 0.0065;
   f_AGL = f_ASL - f_GL;

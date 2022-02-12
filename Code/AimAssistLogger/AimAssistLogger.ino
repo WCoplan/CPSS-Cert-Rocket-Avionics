@@ -41,8 +41,8 @@ int   f_motorDeployMET = 999999;        // motor deploy MET
 bool  f_motorsDeployed = false;
 int lastBlink = 0;
 bool LEDstate = false;
-uint32_t f_flashPointer = 0;
-uint32_t f_maxFlashPointer = 2000;
+int f_flashPointer = 0;
+int f_maxFlashPointer = 16000000;
 
 
 // random variables
@@ -64,7 +64,7 @@ Smoother groundAlt(300);
 Smoother groundAccelX(100);
 Smoother groundAccelY(100);
 Smoother groundAccelZ(100);
-SPIFlash f_flash;
+SPIFlash f_flash(31);
 
 //pins p_*
 //will put these in numerical order
@@ -185,6 +185,14 @@ void setup() {
   if (!SD.begin(p_CS_SD)) {
     f_bootError = 8;
     Serial.println("ERROR: Card failed, or not present");
+  }
+
+  f_flash.eraseChip();
+  if (!f_flash.begin()) {
+    f_bootError = 9;
+    Serial.println("ERROR: flash.begin()");
+  } else {
+    Serial.println("SUCCESS: flash.begin()");
   }
 
   // Print boot status:

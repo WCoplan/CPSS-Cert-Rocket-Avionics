@@ -112,6 +112,7 @@ void logAllValues() {
   data.f[18] = f_oriD;
   data.f[19] = dt;
   data.f[20] = f_mode;
+  
 
   f_flash.writeByteArray(f_flashPointer, data.b, 84);
 

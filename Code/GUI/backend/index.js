@@ -3,7 +3,7 @@ const SerialPort = require('serialport')
 const path = require("path");
 let Readline = SerialPort.parsers.Readline;
 
-const BAUD_RATE = 9600;
+const BAUD_RATE = 57600;
 const DATA_COLS = ['battery', 'lat', 'lon', 'height', 'time', 'alt', 'vx',
                     'vy', 'vz', 'ax', 'ay', 'az', 'mx', 'my', 'mz' ]
 

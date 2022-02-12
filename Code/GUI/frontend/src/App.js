@@ -16,7 +16,9 @@ const App = () => {
 	const [data, setData] = useState([]);
 	const [socket, setSocket] = useState(null);
 	const [maxData, setMaxes] = useState({az : 10, axy : 10, vz : 100, vxy : 100})
-	// const {status, setStatus}
+	const [status, setStatus] = useState({battery : 0, lat : 0, lon : 0, height : 0, time : 0,
+											alt : 0, vx : 0, vy : 0, vz : 0, ax : 0, ay : 0,
+											az : 0, mx : 0, my : 0, mz : 0 })
 
 	// Custom commands for terminal
 	const commands = {
@@ -31,7 +33,7 @@ const App = () => {
 	};
 
 	// Some local commands
-
+	// IMPLEMENT CODE HERE
 
 
 	// Turn socket on if selected
@@ -82,9 +84,12 @@ const App = () => {
 				if(parseFloat(d.vy) > s.vxy) vxy = Math.floor(d.vy / Y_ROUND + 1) * Y_ROUND
 
 				setMaxes({az : az, axy : axy, vz : vz, vxy : vxy})
+				setStatus({battery : s.battery, lat : s.lat, lon : s.lon, height : s.height, time : s.time,
+							alt : s.alt, vx : s.vx, vy : s.vy, vz : s.vz, ax : s.ax, ay : s.ay,
+							az : s.az, mx : s.mx, my : s.my, mz : s.mz })
 			}
 		}
-    }, [data, maxData]);
+    }, [data, maxData, setStatus]);
 
 	return (
 		<Grommet full theme={grommet}>
@@ -98,13 +103,13 @@ const App = () => {
 					{ name: 'acc_z', start: [0, 0], end: [1, 1] },
 					{ name: 'acc_xy', start: [1, 0], end: [2, 1] },
 
-					{ name: 'gps', start: [2, 0], end: [2, 1] },
+					// { name: 'gps', start: [2, 0], end: [2, 1] },
 
 					{ name: 'vel_z', start: [0, 2], end: [1, 3] },
 					{ name: 'vel_xy', start: [1, 2], end: [1, 3] },
 
-					{ name: 'status', start: [2, 3], end: [2, 3] },
-					{ name: 'terminal', start: [2, 2], end: [2, 2] },
+					{ name: 'status', start: [2, 1], end: [2, 3] },
+					{ name: 'terminal', start: [2, 0], end: [2, 1] },
 				]}
 			>
 				{/* Acceleration Graphs */}
@@ -157,32 +162,57 @@ const App = () => {
 					</TerminalContextProvider>
 				</Box>
 
-				<Box gridArea="status" background="light-2" height="100%">
+				<Box gridArea="status" background="light-2" height="100%" border="3px solid">
 					<h4 align="center"> Status</h4>
-					<table>
+					<table style={{borderCollapse: "collapse"}}>
 						<tr>
-							<td>Max Acc  Z: {maxData.az} m/s^2</td>
-							<td>Acc Z: {maxData.az} m/s^2</td>
+							<td>Max Acc Z: {maxData.az} m/s²</td>
+							<td>Acc Z: {status.az} m/s²</td>
 						</tr>
 						<tr>
-							<td>Max Vel  Z: {maxData.vz} m/s</td>
-							<td>Vel Z: {maxData.vz} m/s^2</td>
+							<td>Max Acc Y: {maxData.axy} m/s²</td>
+							<td>Acc X: {status.ax} m/s²</td>
 						</tr>
 						<tr>
-							<td>Max Acc XY: {maxData.axy} m/s^2</td>
-							<td>Acc XY: {maxData.axy} m/s^2</td>
+							<td></td>
+							<td>Acc Y: {status.ay} m/s²</td>
+						</tr>
+						<br></br>
+						<tr>
+							<td>Max Vel Z: {maxData.vz} m/s</td>
+							<td>Vel Z: {status.vz} m/s</td>
 						</tr>
 						<tr>
 							<td>Max Vel XY: {maxData.vxy} m/s</td>
-							{/* <td>Vel XY {maxData.az} m/s^2</td> */}
-							<td>{data.length}</td>
+							<td>Vel X: {status.vx} m/s</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>Vel Y: {status.vy} m/s</td>
+						</tr>
+						<br></br>
+						<tr>
+							<td>Mag X: {status.mx}</td>
+							<td>Latitude: {status.lat}</td>
+						</tr>
+						<tr>
+							<td>Mag Y: {status.my}</td>
+							<td>Longitude: {status.lon}</td>
+						</tr>
+						<tr>
+							<td>Mag Z: {status.mz}</td>
+							<td>Height: {status.height} m</td>
+						</tr>
+						<br></br>
+						<tr>
+							<td>Battery: {status.battery}%</td>
 						</tr>
 					</table>
 				</Box>
 
-				<Box gridArea="gps" >
+				{/* <Box gridArea="gps" >
 					<img src={mapImage} height="100%"></img>
-				</Box>
+				</Box> */}
 			</Grid>
 			) : (<Text>Grid is not supported by your browser </Text>)
 			}

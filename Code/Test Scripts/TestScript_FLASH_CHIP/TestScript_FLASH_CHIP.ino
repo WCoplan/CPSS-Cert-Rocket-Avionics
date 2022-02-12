@@ -1,3 +1,11 @@
+#include <BufferedPrint.h>
+#include <FreeStack.h>
+#include <MinimumSerial.h>
+#include <RingBuf.h>
+#include <SdFat.h>
+#include <SdFatConfig.h>
+#include <sdios.h>
+
 /*
   |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
   |                                                             readWriteString.ino                                                               |
@@ -25,6 +33,8 @@ uint32_t f_dataPointer;
 float f_ax;
 float f_ay;
 float f_az;
+
+SdFat sd;
 
 void setup() {
   Serial.begin(115200);
@@ -63,6 +73,16 @@ void setup() {
   Serial.println();
   
   while (!flash.eraseSector(f_dataPointer));
+
+  // Test writing to the SD card
+
+  fs:File aFile;
+
+  aFile = sd.open("test.txt", FILE_WRITE);
+  aFile.println("solutations");
+
+  aFile.flush();
+  aFile.close();
 }
 
 void loop() {
@@ -103,8 +123,6 @@ void readDataFrame(float out[]) {
 
 //Reads a string from Serial
 bool readSerialStr(String &inputStr) {
-  if (!Serial)
-    Serial.begin(115200);
   while (Serial.available()) {
     inputStr = Serial.readStringUntil('\n');
     Serial.println(inputStr);

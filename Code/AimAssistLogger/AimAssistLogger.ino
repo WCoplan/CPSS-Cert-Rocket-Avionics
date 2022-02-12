@@ -1,16 +1,15 @@
-#include <LinearRegression.h>
-#include "BMI088.h"
+#include "src/LinearRegression.h"
+#include "src/BMI088.h"
 #include "src/Smoother/Smoother.h"
-#include "Quaternion.h"
-#include "Orientation.h"
+#include "src/SPIMemory.h"
+#include "src/Orientation.h"
+#include "src/Quaternion.h"
 #include "Adafruit_BMP3XX.h"
 #include "bmp3_defs.h"
 #include <Adafruit_Sensor.h>
 #include <SPI.h>
 #include <SD.h>
 #include <Wire.h>
-#include <string>
-#include <Servo.h>
 
 // u_* user defined variables
 #define gravity   9.80665
@@ -18,9 +17,6 @@ const float u_seaPressure = 1013.25;
 const float u_launchDetect = 20.0;    // additional acceleration in m/s^2 needed to detect launch
 
 // f_* in flight variables
-float f_descentSlope;                   // Slope during parachute descent
-float f_degree = 0;                     // Current attempting flap value
-float f_currentFlaps;                   // Stores current degree of flaps (0--90)
 int   f_modeStartTime[7];               // Stores start time in milliseconds of each loop
 float f_logInterval;                    // interval between logs at any given moment
 bool  f_logOveride = false;             // Overide log interval
@@ -40,21 +36,19 @@ int   f_startMET, f_MET;                // Mission Ellapsed Time
 float f_pitch, f_yaw, f_roll;           // LOCAL pyr, for global pyr see f_pos object
 float f_oriA, f_oriB, f_oriC, f_oriD;   // Quaternion variables a, b c d
 float f_velocityX, f_prevAGL;           // Vertical velocity, previous AGL, current velocity
-float f_projectedAltitude = 0;          // Projected altitude in meters
-float f_apogee = 0;                     // Apogee in meter
 float f_groundTime = 0;                 // Projected time of reaching the ground in milliseconds
 int   f_motorDeployMET = 999999;        // motor deploy MET
 bool  f_motorsDeployed = false;
-int   f_motorThrottle = 0;
-int desiredMotorDirection = 0;
 int lastBlink = 0;
 bool LEDstate = false;
+uint32_t f_flashPointer = 0;
+uint32_t f_maxFlashPointer = 2000;
 
 
 // random variables
 char  CSVseparator = ',';               // Just a variable to store a comma as a character
-String currentLog;                      // Logfile name
-File  logFile;                          // Global logFile variable
+String currentStore;                      // store file name
+File  storeFile;                          // Global storeFile variable
 int lastMicros = 0;
 int currentMicros = 0;
 float dt = 0.0;
@@ -70,6 +64,7 @@ Smoother groundAlt(300);
 Smoother groundAccelX(100);
 Smoother groundAccelY(100);
 Smoother groundAccelZ(100);
+SPIFlash f_flash;
 
 //pins p_*
 //will put these in numerical order
@@ -174,7 +169,7 @@ void setup() {
   }
 
   // Baro boot sequence:
-  f_bootStatus = baro.begin(0x76);
+  f_bootStatus = baro.begin_SPI(0x76);
   if (f_bootStatus < 0) {
     Serial.println("ERROR: baro.begin()");
     f_bootError = 7;
@@ -201,8 +196,7 @@ void setup() {
     while (true);
   }
   
-  // Make a new log file and move to pad idle mode
-  currentLog = newLog();
+  // Move to pad idle mode
   setup_padIdle();
 }
 
@@ -227,7 +221,6 @@ void loop() {
       loop_groundIdle();
       break;
   }
-
 
   currentMicros = micros();
   dt = (currentMicros - lastMicros) / 1000000.0; //time diff in seconds

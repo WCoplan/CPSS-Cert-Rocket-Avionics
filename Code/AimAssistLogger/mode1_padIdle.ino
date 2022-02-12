@@ -4,7 +4,6 @@ int lastBeep = 0;
 void setup_padIdle() {
   tone(p_buzzer, 1000, 250);
   f_logInterval = 1;
-  logStart(currentLog.c_str());
   dt = 0;
   f_modeStartTime[1] = millis();
   Serial.println("Mode: 1");

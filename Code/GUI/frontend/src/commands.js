@@ -69,16 +69,16 @@ export const endConnection = async (socket) => {
     }
 
     // Tell backend to end connection
-    let status = 'Success';
+    let status = 'Successfully disconnected';
     await fetch('/api/port/end')
         .then((res) => res.json())
         .then((data) => {
             if (data.status !== 'ok') {
-                status = data.err;
+                status = data.error;
             }
         })
         .catch(err => {
-            console.error("Error fetching data:", err);
+            console.error("Error fetching data: ", err);
         });
 
     return status

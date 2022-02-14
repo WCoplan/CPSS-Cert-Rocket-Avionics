@@ -97,7 +97,7 @@ app.get('/api/port/set/:port', async (req, res) => {
     return res.json({ status: 'ok' });
 })
 
-// Get all ports
+// End connection
 app.get('/api/port/end', async (req, res) => {
     try {
         parser.off('data', parseData);
@@ -115,9 +115,13 @@ app.get('/api/port/end', async (req, res) => {
 const parseData = (data) => {
     let parsed = data.split(',');
 
-    if (parsed.length != 15) {
+    // Error checking
+    if (parsed.length != 17 || parsed[0] != '\x02' || parsed[parsed.length - 1] != '\x03') {
         return 0;
     } else {
+        // Remove start and end bytes
+        parsed = parsed.slice(1,-1)
+
         // Turn data array into readable JSON
         let data_obj = {};
         for (let i = 0; i < DATA_COLS.length; i++) {

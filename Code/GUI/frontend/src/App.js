@@ -28,7 +28,7 @@ const App = () => {
 		getports: () => {return getPorts()},
 		endconnection: () => {return endConnection(socket)},
 
-		setbuffer: (bufferlen) =>{buff_len = bufferlen; return `Buffer set to ${buff_len}.`},
+		setbuffer: (bufferlen) => {buff_len = bufferlen; return `Buffer set to ${buff_len}.`},
 		getbuffer: () =>{return buff_len},
 
 		setnumpoints: (numpoints) => {max_disp = numpoints; return `Number of datapoints set to ${buff_len}.`},
@@ -59,8 +59,8 @@ const App = () => {
 	// Detect change in data
 	useEffect(() => {
 		// If data length is greater than max, keep newest
-        if (data && data.length > max_disp) {
-			setData(data.slice(-max_disp))
+        if (data && data.length > max_disp + 1) {
+			setData(data.slice(-(max_disp + 1)))
 
 			// Manually setting max data for charting, because Recharts is ASS
 			// TODO: Change scaling based on max of data, not max overall

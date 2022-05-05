@@ -14,7 +14,7 @@ void sendAllTelemetry() {
     telemetry.print(data[x]);
     telemetry.print(",");
   }
-  telemetry.print("/n");
+  telemetry.print("\n");
     
 //  data.f[0] = f_MET;
 //  data.f[1] = f_pressure;
